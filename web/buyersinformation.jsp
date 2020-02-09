@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<%@include file="header.html" %>
+<%@include file="header.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -52,7 +52,6 @@
                                     <input type="number" name="pincode" required="required" placeholder="Please Enter the your Pin code . . ." class="form-control mb-30"/>
                                     Please enter the you convent time to recive product . 
                                     <input type="time" name="time" required="required"/><br/><br/>
-                                    <input type="hidden" name="pid" value= <%= request.getParameter("pid") %> />
                                     <h4>Payment methods:</h4>
                                     <input type="radio" name="payment" value="COD" id="cod"/><label for="cod">COD (Cash On Delivery)</label><br/><br/>
                                     <input type="radio" name="payment" value="Debit" id="debet"/><label for="debrt">Debit Card (<font color="red" size="2">This Service is not available</font>)</label><br/><br/>
@@ -68,4 +67,4 @@
         </div>
     </body>
 </html>
-<<%@include file="footer.html" %>
+<%@include file="footer.jsp" %>

@@ -4,16 +4,34 @@
     Author     : Ravikumar Makwana
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"
+import="java.sql.*"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-   <%@include file="header.html" %>
+   <%@include file="header.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login User</title>
     </head>
     <body>
+        <%
+        if(request.getParameter("submit")!=null)
+        {
+            String username=request.getParameter("username");
+            String pw=request.getParameter("pw");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("Select * from signup where name='"+username+"'");
+            out.println("<script>");
+            if(rs.next())
+                out.println("alert('Login Successful ! ! !');");
+            else
+                out.println("alert('Login Failed ! ! !');");
+            out.println("</script>");
+        }
+        %>
         <div class="breadcrumb-area">
         <div class="container h-100">
             <div class="row h-100 align-items-end">
@@ -48,13 +66,13 @@
                 <div class="col-12 col-lg-12">
                     <div class="uza-contact-form mb-80">
                         <div class="col-lg-6">
-                            <form action="login.do" method="get">
+                            <form action="" method="get">
                             <div class="form-group">
                                 <input type="text" name="username" size="32" class="form-control mb-30" placeholder="Enter the name">
                             </div>
                             <div class="form-group">
                                 <input type="password" name="password" size="32" class="form-control mb-30" placeholder="Enter the password">
-                                <input type="submit" value="Login" class="btn btn-primary" style="width:100px;">
+                                <input type="submit" name="submit" value="Login" class="btn btn-primary" style="width:100px;">
                             </div>
                            </form>
                         </div>
@@ -65,4 +83,4 @@
     </section>
     </body>
 </html>
-<%@include file="footer.html" %>
+<%@include file="footer.jsp" %>

@@ -11,13 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.sql.*;
 /**
  *
  * @author Ravikumar Makwana
  */
 public class NumberOfVisitors extends HttpServlet {
-     static int c=0;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -30,9 +29,20 @@ public class NumberOfVisitors extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            c++;
+            int c=0;
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030","root","");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("Select * from signup ");
+            while(rs.next())
+                c++;
             out.println("Number of Visitors: "+c);
-        } finally {
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
             out.close();
         }
     }

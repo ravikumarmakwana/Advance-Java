@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
-
 <body>
     <!-- ***** Top Search Area Start ***** -->
     <div class="top-search-area">
@@ -72,7 +71,7 @@
                                         <li><a href="#">Assignment 2</a>
                                         	<ul class="dropdown">
                                                 <li><a href="calculator.jsp">Practical 1</a></li>
-                                                <li><a href="signup.jsp">Practcal 2</a></li>
+                                                <li><a href="login2.jsp">Practcal 2</a></li>
                                                 <li><a href="celesiustofahrenheit.jsp">Practical 3</a></li>
                                                 <li><a href="nooftextfield.jsp">Practical 4</a></li>
                                                 <li><a href="productlist.jsp">Practical 5</a></li>
@@ -133,16 +132,13 @@
                             </ul>
                         </div>
                         <!-- Nav End -->
-
                     </div>
                 </nav>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
-
-
-    <!-- ******* All JS Files ******* -->
+</body>
+<!-- ******* All JS Files ******* -->
     <!-- jQuery js -->
     <script src="js/jquery.min.js"></script>
     <!-- Popper js -->
@@ -153,7 +149,4 @@
     <script src="js/uza.bundle.js"></script>
     <!-- Active js -->
     <script src="js/default-assets/active.js"></script>
-
-</body>
-
 </html>

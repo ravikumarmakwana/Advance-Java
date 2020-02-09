@@ -4,10 +4,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class celesiustofahrenheit_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class login2_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
-
-    double f;
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
@@ -58,28 +56,11 @@ public final class celesiustofahrenheit_jsp extends org.apache.jasper.runtime.Ht
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\n');
-      out.write('\n');
-
-        String conversion = "";
-        if (request.getParameter("convert") != null) {
-            double c = Double.parseDouble(request.getParameter("c"));
-            f = (c * (9 / 5)) + 32;
-
-            conversion = "Celcius " + c + " convert into fahrenheit " + f + "<br/>";
-            if (application.getAttribute("history") != null) {
-                conversion += application.getAttribute("history");
-            }
-            application.setAttribute("history", conversion);
-            out.println(conversion);
-            response.sendRedirect("celesiustofahrenheit.jsp");
-        }
-
       out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n");
-      out.write("   \"http://www.w3.org/TR/html4/loose.dtd\">\n");
+      out.write("\"http://www.w3.org/TR/html4/loose.dtd\">\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
       out.write("\r\n");
@@ -243,23 +224,21 @@ public final class celesiustofahrenheit_jsp extends org.apache.jasper.runtime.Ht
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Celesius To Fahrenheit</title>\n");
+      out.write("        <title>Login User</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("\n");
       out.write("        <div class=\"breadcrumb-area\">\n");
       out.write("            <div class=\"container h-100\">\n");
       out.write("                <div class=\"row h-100 align-items-end\">\n");
       out.write("                    <div class=\"col-12\">\n");
       out.write("                        <div class=\"breadcumb--con\">\n");
       out.write("                            <h2 class=\"title\">\n");
-      out.write("                                Celesius To Fahrenheit\n");
+      out.write("                                Login\n");
       out.write("                            </h2>\n");
       out.write("                            <nav aria-label=\"breadcrumb\">\n");
       out.write("                                <ol class=\"breadcrumb\">\n");
       out.write("                                    <li class=\"breadcrumb-item\"><a href=\"index.jsp\"><i class=\"fa fa-home\"></i>Home</a></li>\n");
-      out.write("                                    <li class=\"breadcrumb-item active\" aria-current=\"page\">Assignment 2</li>\n");
-      out.write("                                    <li class=\"breadcrumb-item active\" aria-current=\"page\">Celesius To Fahrenheit</li>\n");
+      out.write("                                    <li class=\"breadcrumb-item active\" aria-current=\"page\">Login</li>\n");
       out.write("                                </ol>\n");
       out.write("                            </nav>\n");
       out.write("                        </div>\n");
@@ -274,28 +253,51 @@ public final class celesiustofahrenheit_jsp extends org.apache.jasper.runtime.Ht
       out.write("        </div>\n");
       out.write("        <!-- ***** Breadcrumb Area End ***** -->\n");
       out.write("\n");
-      out.write("        <div class=\"container\">\n");
-      out.write("             <div class=\"col-12 col-lg-4\">\n");
-      out.write("            <form action=\"\" method=\"get\">\n");
-      out.write("            <input type=\"number\" name=\"c\" placeholder=\"enter the temperature in celcius \" class=\"form-control mb-30\" required=\"required\">\n");
-      out.write("            <input type=\"submit\" value=\"Convert\" name=\"convert\" class=\"btn uza-btn btn-2\"/><br/><br/><br/>\n");
-      out.write("            <input type=\"number\" disabled=\"disabled\" name=\"f\" value=");
-      out.print( f);
-      out.write(" class=\"form-control mb-30\"><br/>\n");
-      out.write("            </form>\n");
-      out.write("            ");
+      out.write("    <!-- ***** Contact Area Start ***** -->\n");
+      out.write("        <section class=\"uza-contact-area section-padding-80\">\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("                <div class=\"row justify-content-between\">\n");
+      out.write("                    <!-- Contact Form -->\n");
+      out.write("                    <div class=\"col-12 col-lg-12\">\n");
+      out.write("                        <div class=\"uza-contact-form mb-80\">\n");
+      out.write("                            <div class=\"col-lg-6\">\n");
+      out.write("                                <form action=\"\" method=\"get\">\n");
+      out.write("                                    <div class=\"form-group\">\n");
+      out.write("                                        <input type=\"text\" name=\"username\" size=\"32\" class=\"form-control mb-30\" placeholder=\"Enter the name\">\n");
+      out.write("                                   \n");
+      out.write("                                        <input type=\"password\" name=\"password\" size=\"32\" class=\"form-control mb-30\" placeholder=\"Enter the password\">\n");
+      out.write("                                        <input type=\"submit\" name=\"submit\" value=\"Login\" class=\"btn btn-primary\" style=\"width:100px;\">\n");
+      out.write("                                    </div>\n");
+      out.write("                                </form>\n");
+      out.write("                            </div>\n");
+      out.write("                            ");
 
-        if (application.getAttribute("history") != null) {
-            out.println(application.getAttribute("history").toString());
-        }
-        
+                            if(request.getParameter("submit")!=null)
+                            {
+                                String name=request.getParameter("username");
+                                String pwd=request.getParameter("password");
+                                out.println("<script>");
+                                if(name.equals("Ravi")&& pwd.equals("1234"))
+                                {
+                                    out.println("alert('Login Successful ! ! !')");
+                                }
+                                else
+                                {
+                                    out.println("alert('Login Failed, Please Try again ! ! !')");
+                                }
+                                out.println("</script>");
+                                response.sendRedirect("login2.jsp");
+                            }
+                            
       out.write("\n");
-      out.write("        </div>\n");
-      out.write("        </div>\n");
-      out.write("\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </section>\n");
+      out.write("        \n");
       out.write("    </body>\n");
       out.write("</html>\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
       out.write("\r\n");
@@ -397,6 +399,7 @@ public final class celesiustofahrenheit_jsp extends org.apache.jasper.runtime.Ht
       out.write("</body>\r\n");
       out.write("\r\n");
       out.write("</html>");
+      out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

@@ -62,7 +62,6 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <link rel=\"stylesheet\" href=\"style.css\">\n");
       out.write("\n");
       out.write("</head>\n");
-      out.write("\n");
       out.write("<body>\n");
       out.write("    <!-- ***** Top Search Area Start ***** -->\n");
       out.write("    <div class=\"top-search-area\">\n");
@@ -123,10 +122,11 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 2</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"productlist.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
+      out.write("                                                <li><a href=\"calculator.jsp\">Practical 1</a></li>\n");
+      out.write("                                                <li><a href=\"login2.jsp\">Practcal 2</a></li>\n");
+      out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Practical 3</a></li>\n");
+      out.write("                                                <li><a href=\"nooftextfield.jsp\">Practical 4</a></li>\n");
+      out.write("                                                <li><a href=\"productlist.jsp\">Practical 5</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 3</a>\n");
@@ -184,16 +184,13 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </ul>\n");
       out.write("                        </div>\n");
       out.write("                        <!-- Nav End -->\n");
-      out.write("\n");
       out.write("                    </div>\n");
       out.write("                </nav>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
       out.write("    </header>\n");
-      out.write("    <!-- ***** Header Area End ***** -->\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("    <!-- ******* All JS Files ******* -->\n");
+      out.write("</body>\n");
+      out.write("<!-- ******* All JS Files ******* -->\n");
       out.write("    <!-- jQuery js -->\n");
       out.write("    <script src=\"js/jquery.min.js\"></script>\n");
       out.write("    <!-- Popper js -->\n");
@@ -204,9 +201,6 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"js/uza.bundle.js\"></script>\n");
       out.write("    <!-- Active js -->\n");
       out.write("    <script src=\"js/default-assets/active.js\"></script>\n");
-      out.write("\n");
-      out.write("</body>\n");
-      out.write("\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

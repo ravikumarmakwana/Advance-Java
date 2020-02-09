@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<%@include file="header.html"%>
+<%@include file="header.jsp"%>
    <!DOCTYPE html>
    <html lang="en">
        <head>
@@ -45,8 +45,7 @@
                 </div>
             </div>
     </section>
-    <!-- ***** Welcome Area End ***** -->
-    
+    <!-- ***** Welcome Area End ***** -->    
        </body>
    </html>
-<%@include file="footer.html"%>
+<%@include file="footer.jsp"%>

@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<%@include file="header.html" %>
+<%@include file="header.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -43,8 +43,8 @@
 
          <div class="container">
                 <form action="" method="">
-            <input type="number" name="no" required="required" class="form-control mb-30"/><br/>
-            <input type="submit" name="submit" class="btn btn-secondary" style="width:100px;"/>
+            <input type="number" name="no" required="required" placeholder="Enter the number of text field . . ." class="form-control mb-30"/><br/>
+            <input type="submit" name="submit" class="btn btn-info btn-block" /><br/><br/>
             <br/>
         </form>
         <%
@@ -60,4 +60,4 @@
             </div>
     </body>
 </html>
-<%@include file="footer.html" %>
+<%@include file="footer.jsp" %>

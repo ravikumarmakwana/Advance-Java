@@ -139,7 +139,7 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <li><a href=\"#\">Assignment 2</a>\r\n");
       out.write("                                        \t<ul class=\"dropdown\">\r\n");
       out.write("                                                <li><a href=\"calculator.jsp\">Practical 1</a></li>\r\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practcal 2</a></li>\r\n");
+      out.write("                                                <li><a href=\"login2.jsp\">Practcal 2</a></li>\r\n");
       out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Practical 3</a></li>\r\n");
       out.write("                                                <li><a href=\"nooftextfield.jsp\">Practical 4</a></li>\r\n");
       out.write("                                                <li><a href=\"productlist.jsp\">Practical 5</a></li>\r\n");
@@ -308,7 +308,7 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <form action=\"productlist.do\" method=\"get\">\n");
       out.write("                                    <input type=\"hidden\" value=\"1\" name=\"pid\"/>\n");
       out.write("                                    Quantity:<input type=\"number\" value=\"1\" name=\"q\"/><br/>\n");
-      out.write("                                    <input type=\"submit\" value=\"Add To Cart\" name=\"addtocart\"/>\n");
+      out.write("                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Add To Cart\" name=\"addtocart\"/>\n");
       out.write("                                </form>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
@@ -332,7 +332,7 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <form action=\"productlist.do\" method=\"get\">\n");
       out.write("                                    <input type=\"hidden\" value=\"2\" name=\"pid\"/>\n");
       out.write("                                    Quantity:<input type=\"number\" value=\"1\" name=\"q\"/><br/>\n");
-      out.write("                                    <input type=\"submit\" value=\"Add To Cart\" name=\"addtocart\"/>\n");
+      out.write("                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Add To Cart\" name=\"addtocart\"/>\n");
       out.write("                                </form>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
@@ -356,7 +356,7 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <form action=\"productlist.do\" method=\"get\">\n");
       out.write("                                    <input type=\"hidden\" value=\"3\" name=\"pid\"/>\n");
       out.write("                                    Quantity:<input type=\"number\" value=\"1\" name=\"q\"/><br/>\n");
-      out.write("                                    <input type=\"submit\" value=\"Add To Cart\" name=\"addtocart\"/>\n");
+      out.write("                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Add To Cart\" name=\"addtocart\"/>\n");
       out.write("                                </form>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");

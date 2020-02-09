@@ -4,7 +4,7 @@
     Author     : Ravikumar Makwana
 --%>
 
-<%@include file="header.html" %>
+<%@include file="header.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -102,7 +102,7 @@
                                         <input type="submit" name="op" value="-" class="btn btn-info" style="width:50px;"/>&nbsp;&nbsp;&nbsp;
                                         <input type="submit" name="op" value="*" class="btn btn-info" style="width:50px;"/>&nbsp;&nbsp;&nbsp;
                                         <input type="submit" name="op" value="/" class="btn btn-info" style="width:50px;"/>&nbsp;&nbsp;&nbsp;<br/><br/><br/>
-                                        <input type="text" name="result" value=<%= result%> class="form-control mb-30" placeholder="Result :"/>
+                                        <input type="text" name="result" value=<%= result%> class="form-control"  placeholder="Result :" disabled="disabled"/>
                                            </div>
                                 </form>
                             </div>
@@ -113,4 +113,4 @@
         </section>
     </body>
 </html>
-<%@include file="footer.html" %>
+<%@include file="footer.jsp" %>

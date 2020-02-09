@@ -51,7 +51,7 @@
                             <ul class="our-link">
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="login.jsp">Contact Us</a></li>
-                                <li><a href="signup.jsp">Forum Registeration</a></li>      
+                                <li><a href="signup.jsp">Forum Registeration</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -74,7 +74,7 @@
             </div>
 
  <div class="row" style="margin-bottom: 30px;">
-                
+
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Website is made with by Ravikumar Makwana</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

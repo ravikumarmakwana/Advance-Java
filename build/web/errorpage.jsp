@@ -8,7 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
    <%@page isErrorPage="true" %>
-   <%@include file="header.html" %>
+   <%@include file="header.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,13 +22,13 @@
                     <div class="col-12">
                         <div class="breadcumb--con">
                             <h2 class="title">
-                                Calculator
+                                Error Page
                             </h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Assignment 2</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Calculator</li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="calculator.jsp">Calculator</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Error Page</li>
                                 </ol>
                             </nav>
                         </div>
@@ -49,4 +49,4 @@
 
     </body>
 </html>
-<%@include file="footer.html" %>
+<%@include file="footer.jsp" %>

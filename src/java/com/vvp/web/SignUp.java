@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.sql.*;
 
 /**
  *
@@ -41,9 +42,7 @@ public class SignUp extends HttpServlet {
             String gender=request.getParameter("gender");
             String hobbies[]=request.getParameterValues("hobbies");
             String address=request.getParameter("address");
-
             String msg=new String();
-
             //userName Validation
             int l=name.length();
             if(l<6 || l>20)
@@ -112,13 +111,13 @@ public class SignUp extends HttpServlet {
                 msg+="Gender is Required<br/>";
 
             //hobbies Validation
-           if(hobbies==null)
+            if(hobbies==null)
                msg+="Hobbies must be selected<br/>";
-           else{
+            else{
                 int p=hobbies.length;
                     if(p<3)
                         msg+="At least three hobbes must be selected<br/>";
-           }
+            }
             
             //address Validation
             int c4=0;
@@ -130,18 +129,29 @@ public class SignUp extends HttpServlet {
             if(c4<2)
                 msg+="Address must contain at least three lines<br/>";
 
-            String sendMsg="";
             if(msg.length()!=0)
             {
-                sendMsg="SignUp Failed<br/>"+msg+"<br/>Try Again !!!!<br/>";
-                response.sendRedirect("signup.jsp?msg= 'sendMsg' ");
+                out.println("<h1 style='color:red;'>SignUp Failed</h1><br/>");
+                out.println("<p>"+msg+"</p1><br/>");
+                out.println("<a href='signup.jsp'>Try Again !!!!</a><br/>");
             }
             else
             {
-                sendMsg="Welcome"+name+"<br/>Sign Up Successful !!!!";
-                response.sendRedirect("signup.jsp?msg=Sign Up Successful ! ! !");
+                out.println("<h1 style='color:green;'>SignUp Successful ! ! !</h1><br/>");
+                out.println("<h2>Welcome "+ name +" ! ! !</p2><br/>");
+                out.println("Go To <a href='index.jsp'>Home Page</a>");
+                
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030", "root", "");
+                Statement stmt=con.createStatement();
+                int row=stmt.executeUpdate("INSERT INTO signup (id, name, pwd, phoneno, email, semester, branch, gender, hobbies, address) VALUES (NULL, '"+name+"', '"+pw+"', '"+phoneNo+"', '"+email+"', '"+semester+"', '"+branch+"', '"+gender+"', '"+hobbies[0]+"', '"+address+"')");
             }
-        } finally {
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
             out.close();
         }
     }

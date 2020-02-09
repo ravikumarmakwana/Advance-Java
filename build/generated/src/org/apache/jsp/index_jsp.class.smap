@@ -5,13 +5,13 @@ JSP
 *F
 + 0 index.jsp
 index.jsp
-+ 1 header.html
-header.html
-+ 2 footer.html
-footer.html
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
 *L
 5,6:59
-1#1,159:64
-10#0,43:223
-1#2,101:265
+1#1,152:64
+10#0,42:216
+1#2,101:257
 *E

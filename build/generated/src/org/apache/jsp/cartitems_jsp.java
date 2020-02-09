@@ -139,7 +139,7 @@ public final class cartitems_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <li><a href=\"#\">Assignment 2</a>\r\n");
       out.write("                                        \t<ul class=\"dropdown\">\r\n");
       out.write("                                                <li><a href=\"calculator.jsp\">Practical 1</a></li>\r\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practcal 2</a></li>\r\n");
+      out.write("                                                <li><a href=\"login2.jsp\">Practcal 2</a></li>\r\n");
       out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Practical 3</a></li>\r\n");
       out.write("                                                <li><a href=\"nooftextfield.jsp\">Practical 4</a></li>\r\n");
       out.write("                                                <li><a href=\"productlist.jsp\">Practical 5</a></li>\r\n");
@@ -305,7 +305,7 @@ public final class cartitems_jsp extends org.apache.jasper.runtime.HttpJspBase
                 out.println("<h3>Grand Total :: "+grandTotal+" Rs.</h3>");
                     }
                     else
-                        out.println("Your Car3434343t is Empty ! ! !");
+                        out.println("Your Cart is Empty ! ! !");
             }
             else
             {

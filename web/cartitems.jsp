@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-   <%@include file="header.html" %>
+   <%@include file="header.jsp" %>
 <%
        if(application.getAttribute("products")==null){
             Products p1=new Products("Redmi Note 8",10,20000,1);
@@ -80,7 +80,7 @@
                 {
                     Products p=products.get(i);
                     grandTotal+= p.getPrice() * cartItems.get(i);
-                    out.println("<tr><td>"+(c++)+"</td><td>"+p.getPname()+"</td><td>"+cartItems.get(i)+"</td><td>"+p.getPrice()+"</td>");
+                    out.println("<tr align='center'><td>"+(c++)+"</td><td>"+p.getPname()+"</td><td>"+cartItems.get(i)+"</td><td>"+p.getPrice()+"</td>");
                     out.println("<td><form action='finalstep.jsp' method='get'> <input type='hidden' name='pid' value='"+ p.getPid() +"'> <input type='submit' value='Remove' class='btn btn-danger' name='operation'/></form> </td><td> <form action='buyersinformation.jsp'> <input type='hidden' name='pid' value='"+ p.getPid() +"'> <input type='submit' class='btn btn-success' value='Buy' name='operation'/></form></td></tr>");
                 }
                 out.println("</table>");
@@ -99,4 +99,4 @@
         </div>
     </body>
 </html>
-<%@include file="footer.html" %>
+<%@include file="footer.jsp" %>

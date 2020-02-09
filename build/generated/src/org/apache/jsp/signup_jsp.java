@@ -135,7 +135,7 @@ public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <li><a href=\"#\">Assignment 2</a>\r\n");
       out.write("                                        \t<ul class=\"dropdown\">\r\n");
       out.write("                                                <li><a href=\"calculator.jsp\">Practical 1</a></li>\r\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practcal 2</a></li>\r\n");
+      out.write("                                                <li><a href=\"login2.jsp\">Practcal 2</a></li>\r\n");
       out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Practical 3</a></li>\r\n");
       out.write("                                                <li><a href=\"nooftextfield.jsp\">Practical 4</a></li>\r\n");
       out.write("                                                <li><a href=\"productlist.jsp\">Practical 5</a></li>\r\n");
@@ -324,18 +324,6 @@ public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                    <input type=\"submit\" value=\"Sign Up\" name=\"submit\" class=\"btn btn-primary\" style=\"width:100px;\">\n");
       out.write("                                </form>\n");
-      out.write("\n");
-      out.write("                                ");
-
-                                if(request.getParameter("msg")!=null)
-                                {
-                                    String msg=request.getParameter("msg");
-                                    out.println("<script type='text/javascript'>");
-                                    out.println("alert(msg);");
-                                    out.println("</script>");
-                                }
-                                
-      out.write("\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
