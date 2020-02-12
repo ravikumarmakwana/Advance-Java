@@ -9,19 +9,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
    <%@include file="header.jsp" %>
-<%
-       if(application.getAttribute("products")==null){
-            Products p1=new Products("Redmi Note 8",10,20000,1);
-            Products p2=new Products("Redmi 8A",10,15000,2);
-            Products p3=new Products("Redmi Note 7",10,10000,3);
-            HashMap <Integer,Products> products=new HashMap<Integer,Products>();
-            products.put(1, p1);
-            products.put(2, p2);
-            products.put(3, p3);
-            application.setAttribute("products", products);
-            }
- %>
-
 
 <html>
     <head>
