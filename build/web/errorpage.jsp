@@ -27,7 +27,6 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><a href="calculator.jsp">Calculator</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Error Page</li>
                                 </ol>
                             </nav>
@@ -46,6 +45,17 @@
       <h3>The Exception is .... <%= exception %></h3>
 
           </div>
+      
+     <!-- jQuery js -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All js -->
+    <script src="js/uza.bundle.js"></script>
+    <!-- Active js -->
+    <script src="js/default-assets/active.js"></script>
 
     </body>
 </html>

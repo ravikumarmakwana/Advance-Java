@@ -119,6 +119,12 @@ public class SignUp extends HttpServlet {
                         msg+="At least three hobbes must be selected<br/>";
             }
             
+           String hobbie=new String();
+           for(int i=0;i<hobbies.length;i++)
+           {
+               hobbie+=hobbies[i]+",";
+           }
+
             //address Validation
             int c4=0;
             for(int i=0;i<address.length();i++)
@@ -140,11 +146,11 @@ public class SignUp extends HttpServlet {
                 out.println("<h1 style='color:green;'>SignUp Successful ! ! !</h1><br/>");
                 out.println("<h2>Welcome "+ name +" ! ! !</p2><br/>");
                 out.println("Go To <a href='index.jsp'>Home Page</a>");
-                
+
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030", "root", "");
                 Statement stmt=con.createStatement();
-                int row=stmt.executeUpdate("INSERT INTO signup (id, name, pwd, phoneno, email, semester, branch, gender, hobbies, address) VALUES (NULL, '"+name+"', '"+pw+"', '"+phoneNo+"', '"+email+"', '"+semester+"', '"+branch+"', '"+gender+"', '"+hobbies[0]+"', '"+address+"')");
+                int row=stmt.executeUpdate("INSERT INTO signup (id, name, pwd, phoneno, email, semester, branch, gender, hobbies, address) VALUES (NULL, '"+name+"', '"+pw+"', '"+phoneNo+"', '"+email+"', '"+semester+"', '"+branch+"', '"+gender+"', '"+hobbie+"', '"+address+"')");
             }
         }
         catch(Exception e)

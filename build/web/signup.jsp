@@ -48,7 +48,7 @@
                     <div class="col-12 col-lg-12">
                         <div class="uza-contact-form mb-80">
                             <div class="col-lg-6">
-                                <form action="signup.do" method="get">
+                                <form action="signup.do" method="post">
                                     <div class="form-group">
                                         <input type="text" name="username" size="32" class="form-control mb-30" placeholder="Enter the name">
                                     </div>
@@ -117,6 +117,18 @@
                 </div>
             </div>
         </section>
+
+        <!-- jQuery js -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All js -->
+    <script src="js/uza.bundle.js"></script>
+    <!-- Active js -->
+    <script src="js/default-assets/active.js"></script>
+
     </body>
 </html>
 <%@include file="footer.jsp" %>

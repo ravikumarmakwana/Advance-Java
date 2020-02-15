@@ -131,10 +131,8 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 3</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
+      out.write("                                                <li><a href=\"signup.jsp\">Practical 1</a></li>\n");
+      out.write("                                                <li><a href=\"product_jdbc.jsp\">Practical 2</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 4</a>\n");

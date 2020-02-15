@@ -1,0 +1,17 @@
+SMAP
+product_005fjdbc_jsp.java
+JSP
+*S JSP
+*F
++ 0 product_jdbc.jsp
+product_jdbc.jsp
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+5,2:59
+1#1,152:61
+7#0,60:213
+1#2,100:272
+*E

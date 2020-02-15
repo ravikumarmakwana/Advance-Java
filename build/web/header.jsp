@@ -79,10 +79,8 @@
                                         </li>
                                         <li><a href="#">Assignment 3</a>
                                         	<ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
+                                                <li><a href="signup.jsp">Practical 1</a></li>
+                                                <li><a href="product_jdbc.jsp">Practical 2</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Assignment 4</a>

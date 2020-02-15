@@ -70,7 +70,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
  <div class="row" style="margin-bottom: 30px;">

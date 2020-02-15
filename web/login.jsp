@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
-import="java.sql.*"%>
+import="java.sql.*" errorPage="errorpage.jsp"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
    <%@include file="header.jsp" %>
@@ -22,8 +22,10 @@ import="java.sql.*"%>
             String pw=request.getParameter("pw");
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030","root","");
-            Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery("Select * from signup where name='"+username+"'");
+            PreparedStatement pstmt=con.prepareStatement("Select * from signup where name=? and pwd=? ");
+            pstmt.setString(1, username);
+            pstmt.setString(2,pw);
+            ResultSet rs=pstmt.executeQuery();
             out.println("<script>");
             if(rs.next())
                 out.println("alert('Login Successful ! ! !');");
@@ -66,12 +68,12 @@ import="java.sql.*"%>
                 <div class="col-12 col-lg-12">
                     <div class="uza-contact-form mb-80">
                         <div class="col-lg-6">
-                            <form action="" method="get">
+                            <form action="" method="post">
                             <div class="form-group">
                                 <input type="text" name="username" size="32" class="form-control mb-30" placeholder="Enter the name">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" size="32" class="form-control mb-30" placeholder="Enter the password">
+                                <input type="password" name="pw" size="32" class="form-control mb-30" placeholder="Enter the password">
                                 <input type="submit" name="submit" value="Login" class="btn btn-primary" style="width:100px;">
                             </div>
                            </form>
@@ -81,6 +83,18 @@ import="java.sql.*"%>
               </div>
             </div>
     </section>
+
+    <!-- jQuery js -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All js -->
+    <script src="js/uza.bundle.js"></script>
+    <!-- Active js -->
+    <script src="js/default-assets/active.js"></script>
+
     </body>
 </html>
 <%@include file="footer.jsp" %>
