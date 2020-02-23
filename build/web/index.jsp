@@ -22,7 +22,6 @@
                 <div class="background-curve">
                     <img src="./img/core-img/curve-1.png" alt="">
                 </div>
-
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">

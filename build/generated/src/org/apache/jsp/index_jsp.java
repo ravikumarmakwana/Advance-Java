@@ -190,6 +190,16 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </li>\n");
       out.write("                                <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
       out.write("                                <li><a href=\"login.jsp\">Login</a></li>\n");
+      out.write("                                <li><a><h3 style=\"background-color:silver; color:white; border-radius: 50%; padding:0px 10px;\">\n");
+      out.write("                                    ");
+
+                                       if (session.getAttribute("login") != null){
+                                           out.println(session.getAttribute("login").toString().charAt(0));
+                                       }else{
+                                        out.println("#");}
+                                    
+      out.write("\n");
+      out.write("                                </h3></a></li>\n");
       out.write("                            </ul>\n");
       out.write("                        </div>\n");
       out.write("                        <!-- Nav End -->\n");
@@ -218,6 +228,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("           <title>Advance Java</title>\n");
       out.write("       </head>\n");
       out.write("       <body>\n");
+      out.write("\n");
+      out.write("    \n");
       out.write("    <!-- ***** Welcome Area Start ***** -->\n");
       out.write("    <section class=\"welcome-area\">\n");
       out.write("           <!-- Single Welcome Slide -->\n");
@@ -226,7 +238,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"background-curve\">\n");
       out.write("                    <img src=\"./img/core-img/curve-1.png\" alt=\"\">\n");
       out.write("                </div>\n");
-      out.write("\n");
       out.write("                <!-- Welcome Content -->\n");
       out.write("                <div class=\"welcome-content h-100\">\n");
       out.write("                    <div class=\"container h-100\">\n");

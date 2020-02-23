@@ -179,6 +179,16 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </li>\n");
       out.write("                                <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
       out.write("                                <li><a href=\"login.jsp\">Login</a></li>\n");
+      out.write("                                <li><a><h2 class=\"btn btn-danger btn-lg\" style=\"border-radius:100%;\">\n");
+      out.write("                                    ");
+
+                                       if (session.getAttribute("login") != null){
+                                           out.println(session.getAttribute("login").toString().charAt(0));
+                                       }else{
+                                        out.println("#");}
+                                    
+      out.write("\n");
+      out.write("                                </h2></a></li>\n");
       out.write("                            </ul>\n");
       out.write("                        </div>\n");
       out.write("                        <!-- Nav End -->\n");

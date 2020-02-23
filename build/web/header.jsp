@@ -127,6 +127,14 @@
                                 </li>
                                 <li><a href="signup.jsp">Sign Up</a></li>
                                 <li><a href="login.jsp">Login</a></li>
+                                <li><a><h2 class="btn btn-danger" style="border-radius:100%;">
+                                    <%
+                                       if (session.getAttribute("login") != null){
+                                           out.println(session.getAttribute("login").toString().charAt(0));
+                                       }else{
+                                        out.println("#");}
+                                    %>
+                                </h2></a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->
