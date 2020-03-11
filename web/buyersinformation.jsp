@@ -57,7 +57,10 @@
                                     <input type="radio" name="payment" value="Debit" id="debet"/><label for="debrt">Debit Card (<font color="red" size="2">This Service is not available</font>)</label><br/><br/>
                                     <input type="radio" name="payment" value="Credit" id="credit"/><label for="credit">Credit Card (<font color="red" size="2">This Service is not available</font>)</label><br/><br/>
                                     <br/>
-                                    <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
+                                    <%
+                                    String pay=request.getParameter("payment");
+                                    %>
+                                    <input type="hidden" name="pay" value="<%= pay%>"/>
                                     <input type="submit" value="Buy" name="operation" class="btn btn-success" style="width:100px;"/>
                                 </form>
                             </div>

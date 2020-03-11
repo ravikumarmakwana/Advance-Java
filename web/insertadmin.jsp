@@ -45,6 +45,7 @@ import="java.sql.*"%>
         <!-- ***** Contact Area Start ***** -->
         <jsp:include page="dbconnect.jsp"/>
         <%
+        String msg="";
         if(request.getParameter("insert")!=null){
         String pname=request.getParameter("pname");
         String pdesc=request.getParameter("pdesc");
@@ -54,9 +55,8 @@ import="java.sql.*"%>
         Connection con=(Connection)application.getAttribute("con");
         Statement stmt=con.createStatement();
         int row=stmt.executeUpdate("Insert into products (pid,pname,pdesc,stock,price,image) values (NULL,'"+pname+"','"+pdesc+"','"+stock+"','"+price+"','"+image+"')");
-        out.println("<script>");
-        out.println("alert('"+row+" are affaceted .')");
-        out.println("</script>");
+        
+        msg=row+" are affaceted .";
         }
         %>
         <section class="uza-contact-area section-padding-80">
@@ -69,6 +69,8 @@ import="java.sql.*"%>
                     <input type="file" name="image" class="form-control col-lg-5"/><br/>
                     <input type="submit" name="insert" class="btn btn-info col-lg-2"/>
                 </form>
+                <br/>
+                <p style="color:teal;font-size:30px;"><%= msg%></p>
             </div>
         </section>
         <!-- jQuery js -->

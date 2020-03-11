@@ -5,8 +5,7 @@
 --%>
 <%@page import="com.vvp.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"
-        import="java.util.*"%>
-<%@page import="java.sql.*" %>
+        import="java.util.*,java.sql.*"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="header.jsp"%>
@@ -29,19 +28,6 @@
     </head>
 
     <body>
-        <%
-        if (application.getAttribute("products") == null) {
-            Products p1 = new Products("Redmi Note 8", 10, 20000, 1);
-            Products p2 = new Products("Redmi 8A", 10, 15000, 2);
-            Products p3 = new Products("Redmi Note 7", 10, 10000, 3);
-            HashMap<Integer, Products> products = new HashMap<Integer, Products>();
-            products.put(1, p1);
-            products.put(2, p2);
-            products.put(3, p3);
-            application.setAttribute("products", products);
-        }
-        %>
-
         <div class="breadcrumb-area">
             <div class="container h-100">
                 <div class="row h-100 align-items-end">
@@ -54,14 +40,22 @@
                                 <%!    int count = 0;
                                 %>
                                 <%
-        HashMap<Integer, Integer> cartItems = (HashMap<Integer, Integer>) session.getAttribute("cart");
-        if (cartItems != null) {
-            count = 0;
-            for (int i : cartItems.keySet()) {
-                count += cartItems.get(i);
-            }
-        }
+        Connection con = (Connection) application.getAttribute("con");
+        Statement stmt = con.createStatement();
+        count = 0;
+        int id=(Integer)session.getAttribute("loginID");
+        ResultSet rs=stmt.executeQuery("Select * from cart where userid='"+id+"'");
+        HashMap <Integer,Integer> temp=new HashMap<Integer,Integer>();
 
+        int pid,q;
+        while(rs.next())
+        {
+            pid=rs.getInt("pid");
+            q=rs.getInt("q");
+            count+=q;
+            temp.put(new Integer(pid),new Integer(q));
+        }
+        session.setAttribute("cart", temp);
                                 %>
                                 <a href="cartitems.jsp"> Cart : <%= count%></a>
                             </p>
@@ -87,24 +81,23 @@
         <div class="container">
             <div class="row">
                 <%
-        Connection con = (Connection) application.getAttribute("con");
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("Select * from products");
+        rs = stmt.executeQuery("Select * from products");
         while (rs.next()) {
             String img = "img/" + rs.getString(6);
                 %>
                 <!-- Single Blog Post -->
                 <div class="col-12 col-lg-4">
                     <div class="single-blog-post bg-img mb-80" align="center">
-                        <img src="<%= img%>" width="400px"/>
+                        <img src="<%= img%>" width="400px" class="container"/>
                         <!-- Post Content -->
                         <div class="post-content" align="left">
-                            <%= rs.getString("pdesc")%><br/>
-                            Price : <%= rs.getFloat("price")%><br/>
-                            Stock : <%= rs.getInt("stock")%><br/><br/>
-                            <div align="center">
-                                <form action="productlist.do" method="get">
-                                    <input type="hidden" value="1" name="pid"/>
+                            <p><%= rs.getString("pdesc")%><br/>
+                            <b>Price</b> : <%= rs.getFloat("price")%><br/>
+                            <b>Stock </b>: <%= rs.getInt("stock")%><br/><br/>
+                            </p><div align="center">
+                                <form action="productlist.do" method="post">
+                                    <input type="hidden" value="<%= rs.getInt("pid") %>" name="pid"/>
+                                    <input type="hidden" value="<%= rs.getFloat("price") %>" name="price"/>
                                     Quantity:<input type="number" value="1" name="q"/><br/><br/>
                                     <input type="submit" class="btn btn-primary" value="Add To Cart" name="addtocart"/>
                                 </form>
@@ -128,7 +121,5 @@
         <script src="js/default-assets/active.js"></script>
 
     </body>
-
 </html>
-
 <%@include file="footer.jsp" %>

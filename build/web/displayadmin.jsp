@@ -73,9 +73,6 @@ import="java.sql.*"%>
         {
             int pid=Integer.parseInt(request.getParameter("pid"));
             int row=stmt.executeUpdate("delete from products where pid='"+pid+"'");
-            out.println("<script>");
-            out.println("alert('"+row+" are Deleted .')");
-            out.println("</script>");
         }
         %>
 

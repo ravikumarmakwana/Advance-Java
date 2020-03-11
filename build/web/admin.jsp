@@ -3,7 +3,12 @@
     Created on : 20-Feb-2020, 13:23:43
     Author     : Ravikumar Makwana
 --%>
-
+<%@include file="usersession.jsp"%>
+<%
+         String name= (String)session.getAttribute("login");
+         if(!name.equals("Admin_Java"))
+             response.sendRedirect("login.jsp");
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -41,19 +46,21 @@
         <!-- ***** Breadcrumb Area End ***** -->
         <div class="container">
             <div class="row">
-                
                 <div class="col-lg-8">
-                    <br/><br/><br/><br/>
-                    <a href="insertadmin.jsp" class="btn btn-info col-lg-5">Insert</a><br/><br/><br/><br/>
-                    <a href="displayadmin.jsp" class="btn btn-info col-lg-5">Display</a><br/><br/><br/><br/>
+                    <img style="border-radius:60px; " src="img/admin2.jpeg"/>
+                    <br/><br/>
+                    <h2 style="color:teal;">Ravikumar Makwana</h2>
+                    <h4 style="color:silver;">Computer Engineer</h4>
+                    <h4 style="color:silver;">18ravi2000@gmail.com</h4>
+                    <h4 style="color:silver;">63505 08988</h4>
                 </div>
 
                 <div class="col-lg-4">
-                    <img class="col-lg-8" src="img/admin.jpg" style="border-radius: 100%"/><br/>
-                    <br/>
-                    <h2 style="color:teal;">Ravikumar Makwana</h2>
-                    <h4 style="color:silver;">18ravi2000@gmail.com</h4>
-                    <h4 style="color:silver;">63505 08988</h4>
+                    <br/><br/>
+                    <h3 style="font-family:monospace;color:teal;">Manage E-Commerce Web Application</h3>
+                    <br/><br/>
+                    <a href="insertadmin.jsp" class="btn btn-outline-info btn-block">Insert</a><br/><br/><br/><br/>
+                    <a href="displayadmin.jsp" class="btn btn-outline-info btn-block">Display</a><br/><br/><br/><br/>
                 </div>
             </div>
         </div>

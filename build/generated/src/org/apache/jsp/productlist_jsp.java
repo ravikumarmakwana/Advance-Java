@@ -61,7 +61,10 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\n");
+
+    if(session.getAttribute("login")==null)
+        response.sendRedirect("login.jsp");
+
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -126,30 +129,30 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <!-- Nav Start -->\n");
       out.write("                        <div class=\"classynav\">\n");
       out.write("                            <ul id=\"nav\">\n");
-      out.write("                                <li class=\"current-item\"><a href=\"index.jsp\">Home</a></li>\n");
+      out.write("                                <li><a href=\"index.jsp\">Home</a></li>\n");
       out.write("                                <li><a href=\"#\">Assignments</a>\n");
       out.write("                                    <ul class=\"dropdown\">\n");
       out.write("                                        <li><a href=\"#\">Assignment 1</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"login.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"numberofvisitors.do\">Practical 2</a></li>\n");
-      out.write("                                                <li><a href=\"numbertable.html\">Practical 3</a></li>\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practical 4</a></li>\n");
+      out.write("                                                <li><a href=\"login.jsp\">Login-Controller</a></li>\n");
+      out.write("                                                <li><a href=\"numberofvisitors.do\">Count Visitors</a></li>\n");
+      out.write("                                                <li><a href=\"numbertable.html\">Multiplication Table</a></li>\n");
+      out.write("                                                <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 2</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"calculator.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"login2.jsp\">Practcal 2</a></li>\n");
-      out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Practical 3</a></li>\n");
-      out.write("                                                <li><a href=\"nooftextfield.jsp\">Practical 4</a></li>\n");
-      out.write("                                                <li><a href=\"productlist.jsp\">Practical 5</a></li>\n");
+      out.write("                                                <li><a href=\"calculator.jsp\">Calculator</a></li>\n");
+      out.write("                                                <li><a href=\"login2.jsp\">Dynamic Login</a></li>\n");
+      out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Celesius-Fahrenheit</a></li>\n");
+      out.write("                                                <li><a href=\"nooftextfield.jsp\">Text-Field Generate</a></li>\n");
+      out.write("                                                <li><a href=\"productlist.jsp\">E-Commerce</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 3</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"product_jdbc.jsp\">Practical 2</a></li>\n");
+      out.write("                                                <li><a href=\"signup.jsp\">Sign Up With JDBC</a></li>\n");
+      out.write("                                                <li><a href=\"product_jdbc.jsp\">JDBC Operations</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 4</a>\n");
@@ -196,6 +199,7 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </li>\n");
       out.write("                                <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
       out.write("                                <li><a href=\"login.jsp\">Login</a></li>\n");
+      out.write("                                <li><a href=\"admin.jsp\" class=\"btn btn-outline-info\" style=\"color:black;\">Admin</a></li>\n");
       out.write("                                <li><a><h2 class=\"btn btn-danger\" style=\"border-radius:100%;\">\n");
       out.write("                                    ");
 
@@ -247,21 +251,6 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("\n");
       out.write("    <body>\n");
-      out.write("        ");
-
-        if (application.getAttribute("products") == null) {
-            Products p1 = new Products("Redmi Note 8", 10, 20000, 1);
-            Products p2 = new Products("Redmi 8A", 10, 15000, 2);
-            Products p3 = new Products("Redmi Note 7", 10, 10000, 3);
-            HashMap<Integer, Products> products = new HashMap<Integer, Products>();
-            products.put(1, p1);
-            products.put(2, p2);
-            products.put(3, p3);
-            application.setAttribute("products", products);
-        }
-        
-      out.write("\n");
-      out.write("\n");
       out.write("        <div class=\"breadcrumb-area\">\n");
       out.write("            <div class=\"container h-100\">\n");
       out.write("                <div class=\"row h-100 align-items-end\">\n");
@@ -275,14 +264,22 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                                ");
 
-        HashMap<Integer, Integer> cartItems = (HashMap<Integer, Integer>) session.getAttribute("cart");
-        if (cartItems != null) {
-            count = 0;
-            for (int i : cartItems.keySet()) {
-                count += cartItems.get(i);
-            }
-        }
+        Connection con = (Connection) application.getAttribute("con");
+        Statement stmt = con.createStatement();
+        count = 0;
+        int id=(Integer)session.getAttribute("loginID");
+        ResultSet rs=stmt.executeQuery("Select * from cart where userid='"+id+"'");
+        HashMap <Integer,Integer> temp=new HashMap<Integer,Integer>();
 
+        int pid,q;
+        while(rs.next())
+        {
+            pid=rs.getInt("pid");
+            q=rs.getInt("q");
+            count+=q;
+            temp.put(new Integer(pid),new Integer(q));
+        }
+        session.setAttribute("cart", temp);
                                 
       out.write("\n");
       out.write("                                <a href=\"cartitems.jsp\"> Cart : ");
@@ -314,9 +311,7 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"row\">\n");
       out.write("                ");
 
-        Connection con = (Connection) application.getAttribute("con");
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("Select * from products");
+        rs = stmt.executeQuery("Select * from products");
         while (rs.next()) {
             String img = "img/" + rs.getString(6);
                 
@@ -326,21 +321,26 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"single-blog-post bg-img mb-80\" align=\"center\">\n");
       out.write("                        <img src=\"");
       out.print( img);
-      out.write("\" width=\"500px\"/>\n");
+      out.write("\" width=\"400px\" class=\"container\"/>\n");
       out.write("                        <!-- Post Content -->\n");
       out.write("                        <div class=\"post-content\" align=\"left\">\n");
-      out.write("                            ");
+      out.write("                            <p>");
       out.print( rs.getString("pdesc"));
       out.write("<br/>\n");
-      out.write("                            Price : ");
+      out.write("                            <b>Price</b> : ");
       out.print( rs.getFloat("price"));
       out.write("<br/>\n");
-      out.write("                            Stock : ");
+      out.write("                            <b>Stock </b>: ");
       out.print( rs.getInt("stock"));
       out.write("<br/><br/>\n");
-      out.write("                            <div align=\"center\">\n");
-      out.write("                                <form action=\"productlist.do\" method=\"get\">\n");
-      out.write("                                    <input type=\"hidden\" value=\"1\" name=\"pid\"/>\n");
+      out.write("                            </p><div align=\"center\">\n");
+      out.write("                                <form action=\"productlist.do\" method=\"post\">\n");
+      out.write("                                    <input type=\"hidden\" value=\"");
+      out.print( rs.getInt("pid") );
+      out.write("\" name=\"pid\"/>\n");
+      out.write("                                    <input type=\"hidden\" value=\"");
+      out.print( rs.getFloat("price") );
+      out.write("\" name=\"price\"/>\n");
       out.write("                                    Quantity:<input type=\"number\" value=\"1\" name=\"q\"/><br/><br/>\n");
       out.write("                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Add To Cart\" name=\"addtocart\"/>\n");
       out.write("                                </form>\n");
@@ -366,9 +366,7 @@ public final class productlist_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script src=\"js/default-assets/active.js\"></script>\n");
       out.write("\n");
       out.write("    </body>\n");
-      out.write("\n");
       out.write("</html>\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html lang=\"en\">\n");
       out.write("\n");

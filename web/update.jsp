@@ -56,8 +56,7 @@ import="java.sql.*"%>
         String pdesc=rs.getString(3);
         int stock=rs.getInt(4);
         float price=rs.getFloat(5);
-        %>
-        <%
+        String msg="";
         if(request.getParameter("update")!=null)
         {
             pname=request.getParameter("pname");
@@ -65,10 +64,8 @@ import="java.sql.*"%>
             stock=Integer.parseInt(request.getParameter("stock"));
             price=Float.parseFloat(request.getParameter("price"));
             int row=stmt.executeUpdate("Update products_jdbc set pname='"+pname+"', pdesc='"+pdesc+"' , stock='"+stock+"' , price='"+price+"' where pid='"+pid+"'");
-            out.println("<script>");
-            out.println("alert('"+row+" are Updated .')");
-            out.println("</script>");
-        }
+            msg=row+" Items is Updated .";
+             }
         %>
         <section class="uza-contact-area section-padding-80">
             <div class="container">
@@ -79,7 +76,9 @@ import="java.sql.*"%>
                     <input type="number" name="price" class="form-control col-lg-5"  value="<%= price %>"/><br/>
                     <input type="submit" name="update" value="Update" class="btn btn-info col-lg-2"/>
                 </form>
+                <p style="color:teal;font-size:30px;"><%= msg%></p>
             </div>
+            
         </section>
         <!-- jQuery js -->
     <script src="js/jquery.min.js"></script>

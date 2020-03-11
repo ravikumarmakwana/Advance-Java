@@ -12,7 +12,8 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList(2);
+    _jspx_dependants = new java.util.ArrayList(3);
+    _jspx_dependants.add("/usersession.jsp");
     _jspx_dependants.add("/header.jsp");
     _jspx_dependants.add("/footer.jsp");
   }
@@ -56,7 +57,18 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\n");
+      out.write('\n');
+
+    if(session.getAttribute("login")==null)
+        response.sendRedirect("login.jsp");
+
+      out.write('\n');
+
+         String name= (String)session.getAttribute("login");
+         String pwd = (String)session.getAttribute("loginID");
+         if(name.equals("Admin_Java")&& pwd.equals("Admin@1111"))
+             response.sendRedirect("login.jsp");
+
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n");
@@ -120,30 +132,30 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <!-- Nav Start -->\n");
       out.write("                        <div class=\"classynav\">\n");
       out.write("                            <ul id=\"nav\">\n");
-      out.write("                                <li class=\"current-item\"><a href=\"index.jsp\">Home</a></li>\n");
+      out.write("                                <li><a href=\"index.jsp\">Home</a></li>\n");
       out.write("                                <li><a href=\"#\">Assignments</a>\n");
       out.write("                                    <ul class=\"dropdown\">\n");
       out.write("                                        <li><a href=\"#\">Assignment 1</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"login.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"numberofvisitors.do\">Practical 2</a></li>\n");
-      out.write("                                                <li><a href=\"numbertable.html\">Practical 3</a></li>\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practical 4</a></li>\n");
+      out.write("                                                <li><a href=\"login.jsp\">Login-Controller</a></li>\n");
+      out.write("                                                <li><a href=\"numberofvisitors.do\">Count Visitors</a></li>\n");
+      out.write("                                                <li><a href=\"numbertable.html\">Multiplication Table</a></li>\n");
+      out.write("                                                <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 2</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"calculator.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"login2.jsp\">Practcal 2</a></li>\n");
-      out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Practical 3</a></li>\n");
-      out.write("                                                <li><a href=\"nooftextfield.jsp\">Practical 4</a></li>\n");
-      out.write("                                                <li><a href=\"productlist.jsp\">Practical 5</a></li>\n");
+      out.write("                                                <li><a href=\"calculator.jsp\">Calculator</a></li>\n");
+      out.write("                                                <li><a href=\"login2.jsp\">Dynamic Login</a></li>\n");
+      out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Celesius-Fahrenheit</a></li>\n");
+      out.write("                                                <li><a href=\"nooftextfield.jsp\">Text-Field Generate</a></li>\n");
+      out.write("                                                <li><a href=\"productlist.jsp\">E-Commerce</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 3</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"product_jdbc.jsp\">Practical 2</a></li>\n");
+      out.write("                                                <li><a href=\"signup.jsp\">Sign Up With JDBC</a></li>\n");
+      out.write("                                                <li><a href=\"product_jdbc.jsp\">JDBC Operations</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 4</a>\n");
@@ -190,6 +202,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </li>\n");
       out.write("                                <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
       out.write("                                <li><a href=\"login.jsp\">Login</a></li>\n");
+      out.write("                                <li><a href=\"admin.jsp\" class=\"btn btn-outline-info\" style=\"color:black;\">Admin</a></li>\n");
       out.write("                                <li><a><h2 class=\"btn btn-danger\" style=\"border-radius:100%;\">\n");
       out.write("                                    ");
 
@@ -255,19 +268,19 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- ***** Breadcrumb Area End ***** -->\n");
       out.write("        <div class=\"container\">\n");
       out.write("            <div class=\"row\">\n");
-      out.write("                \n");
       out.write("                <div class=\"col-lg-8\">\n");
-      out.write("                    <br/><br/><br/><br/>\n");
-      out.write("                    <a href=\"insertadmin.jsp\" class=\"btn btn-info col-lg-5\">Insert</a><br/><br/><br/><br/>\n");
-      out.write("                    <a href=\"displayadmin.jsp\" class=\"btn btn-info col-lg-5\">Display</a><br/><br/><br/><br/>\n");
+      out.write("                    <img style=\"border-radius:60px; \" src=\"img/admin2.jpeg\"/>\n");
+      out.write("                    <br/><br/>\n");
+      out.write("                    <h2 style=\"color:teal;\">Ravikumar Makwana</h2>\n");
+      out.write("                    <h4 style=\"color:silver;\">Computer Engineer</h4>\n");
+      out.write("                    <h4 style=\"color:silver;\">18ravi2000@gmail.com</h4>\n");
+      out.write("                    <h4 style=\"color:silver;\">63505 08988</h4>\n");
       out.write("                </div>\n");
       out.write("\n");
       out.write("                <div class=\"col-lg-4\">\n");
-      out.write("                    <img class=\"col-lg-8\" src=\"img/admin.jpg\" style=\"border-radius: 100%\"/><br/>\n");
-      out.write("                    <br/>\n");
-      out.write("                    <h2 style=\"color:teal;\">Ravikumar Makwana</h2>\n");
-      out.write("                    <h4 style=\"color:silver;\">18ravi2000@gmail.com</h4>\n");
-      out.write("                    <h4 style=\"color:silver;\">63505 08988</h4>\n");
+      out.write("                    <br/><br/><br/><br/>\n");
+      out.write("                    <a href=\"insertadmin.jsp\" class=\"btn btn-outline-info btn-block\">Insert</a><br/><br/><br/><br/>\n");
+      out.write("                    <a href=\"displayadmin.jsp\" class=\"btn btn-outline-info btn-block\">Display</a><br/><br/><br/><br/>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");

@@ -8,17 +8,9 @@
         import="java.sql.*" errorPage="errorpage.jsp"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
-<%@include file="header.jsp" %>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login User</title>
-    </head>
-    <body>
-        <%!
-        String msg="Please Try Login ! ! !";
-        %>
-        <%@include file="dbconnect.jsp" %>
+
+<jsp:include page="dbconnect.jsp"/>
+<%!String msg="Please Try Login ! ! !";%>
         <%
         if (request.getParameter("submit") != null) {
             String username = request.getParameter("username");
@@ -30,13 +22,22 @@
             ResultSet rs = pstmt.executeQuery();
             if(rs.next())
             {
-                msg="Login Successful ! ! !<br/>Welcome "+username+".";
                 session.setAttribute("login", username);
+                session.setAttribute("loginID", rs.getInt("id"));
+                response.sendRedirect("index.jsp");
             }
             else
                 msg="Login Failed ! ! !<br/>Please Try Again.";
         }
         %>
+<%@include file="header.jsp" %>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login User</title>
+    </head>
+    <body>
+        
         <div class="breadcrumb-area">
             <div class="container h-100">
                 <div class="row h-100 align-items-end">

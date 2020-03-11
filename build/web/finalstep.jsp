@@ -3,12 +3,12 @@
     Created on : 30-Jan-2020, 05:52:54
     Author     : Ravikumar Makwana
 --%>
-<%@page import="java.util.*" %>
+<%@page import="java.util.*,java.sql.*" %>
 <%@page import="com.vvp.Products" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-   <%@include file="header.jsp" %>
+"http://www.w3.org/TR/html4/loose.dtd">
+<%@include file="header.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -43,51 +43,38 @@
             </div>
         </div>
 
-         <div class="container">
+        <jsp:include page="dbconnect.jsp"/>
+        <div class="container">
+            <%
+        Connection con = (Connection) application.getAttribute("con");
+        Statement stmt = con.createStatement();
+        int userId = (Integer) session.getAttribute("loginID");
+        HashMap<Integer, Integer> cartItems = (HashMap<Integer, Integer>) session.getAttribute("cart");
+        for (Integer i : cartItems.keySet()) {
+            int r = stmt.executeUpdate("update products set stock=stock-" + cartItems.get(i) + " where pid=" + i + "");
+        }
+        int r = stmt.executeUpdate("delete from cart where userid=" + userId + "");
+        out.println("<font size='5' face='candara'>");
+        String pay=request.getParameter("pay");
+        out.println("Total Payment :: "+pay+"<br/>");
+        out.println("Cash On Delivery<br/>");
+        out.println("Order arriving in Two Days.");
+        out.println("<h3 style='color:teal;'>Thank you for Shopping !!!</h3>");
+        out.println("</font>");
+        session.setAttribute("cart", "");
+            %>
+        </div>
+        <!-- jQuery js -->
 
-        <%
-
-            HashMap <Integer,Products> products=(HashMap <Integer,Products>)application.getAttribute("products");
-            HashMap <Integer,Integer> cartItems=(HashMap <Integer,Integer>)session.getAttribute("cart");
-            String op=request.getParameter("operation");
-            int pid=Integer.parseInt(request.getParameter("pid"));
-            if(op.equals("Buy"))
-            {
-                Products p=products.get(pid);
-                int stock=p.getStock(),q=cartItems.get(pid);
-                stock-=q;
-                out.println("<font size='5' face='candara'>");
-                out.println("Product : "+p.getPname()+"<br/>");
-                out.println("Quantity : "+q+"<br/>");
-                out.println("Payment method : COD <br/>");
-                out.println("Total Payment : "+p.getPrice()*q+" Rs.<br/>");
-                out.println("Thank you for Shopping !!!");
-                out.println("</font>");
-                p.setStock(stock);
-                cartItems.remove(pid);
-                application.setAttribute("products", products);
-                session.setAttribute("cart", cartItems);
-            }
-            else if(op.equals("Remove"))
-            {
-                out.println("<font size='5' face='candara'>");
-                out.println("Items remove form cart");
-                out.println("</font>");
-                cartItems.remove(pid);
-                session.setAttribute("cart", cartItems);      
-            }
-        %>
-         </div>
-<!-- jQuery js -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All js -->
-    <script src="js/uza.bundle.js"></script>
-    <!-- Active js -->
-    <script src="js/default-assets/active.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <!-- Popper js -->
+        <script src="js/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- All js -->
+        <script src="js/uza.bundle.js"></script>
+        <!-- Active js -->
+        <script src="js/default-assets/active.js"></script>
 
     </body>
 </html>

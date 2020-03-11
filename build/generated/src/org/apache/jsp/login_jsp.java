@@ -4,22 +4,18 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.sql.*;
-import java.sql.*;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
-
-        String msg="Please Try Login ! ! !";
-        
+String msg = "Please Try Login ! ! !";
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList(3);
+    _jspx_dependants = new java.util.ArrayList(2);
     _jspx_dependants.add("/header.jsp");
-    _jspx_dependants.add("/dbconnect.jsp");
     _jspx_dependants.add("/footer.jsp");
   }
 
@@ -67,6 +63,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n");
       out.write("\"http://www.w3.org/TR/html4/loose.dtd\">\n");
+      out.write("\n");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "dbconnect.jsp", out, false);
+      out.write('\n');
       out.write("<!DOCTYPE html>\n");
       out.write("<html lang=\"en\">\n");
       out.write("\n");
@@ -126,39 +125,36 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <!-- Nav Start -->\n");
       out.write("                        <div class=\"classynav\">\n");
       out.write("                            <ul id=\"nav\">\n");
-      out.write("                                <li class=\"current-item\"><a href=\"index.jsp\">Home</a></li>\n");
+      out.write("                                <li><a href=\"index.jsp\">Home</a></li>\n");
       out.write("                                <li><a href=\"#\">Assignments</a>\n");
       out.write("                                    <ul class=\"dropdown\">\n");
       out.write("                                        <li><a href=\"#\">Assignment 1</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"login.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"numberofvisitors.do\">Practical 2</a></li>\n");
-      out.write("                                                <li><a href=\"numbertable.html\">Practical 3</a></li>\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practical 4</a></li>\n");
+      out.write("                                                <li><a href=\"login.jsp\">Login-Controller</a></li>\n");
+      out.write("                                                <li><a href=\"numberofvisitors.do\">Count Visitors</a></li>\n");
+      out.write("                                                <li><a href=\"numbertable.html\">Multiplication Table</a></li>\n");
+      out.write("                                                <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 2</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"calculator.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"login2.jsp\">Practcal 2</a></li>\n");
-      out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Practical 3</a></li>\n");
-      out.write("                                                <li><a href=\"nooftextfield.jsp\">Practical 4</a></li>\n");
-      out.write("                                                <li><a href=\"productlist.jsp\">Practical 5</a></li>\n");
+      out.write("                                                <li><a href=\"calculator.jsp\">Calculator</a></li>\n");
+      out.write("                                                <li><a href=\"login2.jsp\">Dynamic Login</a></li>\n");
+      out.write("                                                <li><a href=\"celesiustofahrenheit.jsp\">Celesius-Fahrenheit</a></li>\n");
+      out.write("                                                <li><a href=\"nooftextfield.jsp\">Text-Field Generate</a></li>\n");
+      out.write("                                                <li><a href=\"productlist.jsp\">E-Commerce</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 3</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"signup.jsp\">Practical 1</a></li>\n");
-      out.write("                                                <li><a href=\"product_jdbc.jsp\">Practical 2</a></li>\n");
+      out.write("                                                <li><a href=\"signup.jsp\">Sign Up With JDBC</a></li>\n");
+      out.write("                                                <li><a href=\"product_jdbc.jsp\">JDBC Operations</a></li>\n");
       out.write("                                            </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 4</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                                <li><a href=\"#\">- Dropdown Item</a></li>\n");
-      out.write("                                            </ul>\n");
+      out.write("                                                <li><a href=\"productlist.jsp\">E-Commerce 2.0</a></li>\n");
+      out.write("                                                </ul>\n");
       out.write("                                        </li>\n");
       out.write("                                        <li><a href=\"#\">Assignment 5</a>\n");
       out.write("                                        \t<ul class=\"dropdown\">\n");
@@ -196,17 +192,17 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </li>\n");
       out.write("                                <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
       out.write("                                <li><a href=\"login.jsp\">Login</a></li>\n");
-      out.write("                                <li><a><h3 style=\"background-color:silver; color:white; border-radius: 50%; padding:0px 10px;\">\n");
+      out.write("                                <li><a href=\"admin.jsp\" class=\"btn btn-outline-info\" style=\"color:black;\">Admin</a></li>\n");
+      out.write("                                <li><a><h2 class=\"btn btn-danger\" style=\"border-radius:100%;\">\n");
       out.write("                                    ");
 
-                                        char c='*';
-                                       if (session.getAttribute("login") != null) {
-                                           c=session.getAttribute("login").toString().charAt((0));
-                                       }
-                                        out.println(c);
+                                       if (session.getAttribute("login") != null){
+                                           out.println(session.getAttribute("login").toString().charAt(0));
+                                       }else{
+                                        out.println("#");}
                                     
       out.write("\n");
-      out.write("                                </h3></a></li>\n");
+      out.write("                                </h2></a></li>\n");
       out.write("                            </ul>\n");
       out.write("                        </div>\n");
       out.write("                        <!-- Nav End -->\n");
@@ -235,53 +231,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Login User</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        ");
-      out.write("\n");
-      out.write("        ");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n");
-      out.write("   \"http://www.w3.org/TR/html4/loose.dtd\">\n");
-      out.write("\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        ");
-
-        if(application.getAttribute("con")==null)
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030","root","");
-            application.setAttribute("con", con);
-        }
-        
-      out.write("\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
-      out.write("\n");
-      out.write("        ");
-
-        if (request.getParameter("submit") != null) {
-            String username = request.getParameter("username");
-            String pw = request.getParameter("pw");
-            Connection con = (Connection)application.getAttribute("con");
-            PreparedStatement pstmt = con.prepareStatement("Select * from signup where name=? and pwd=? ");
-            pstmt.setString(1, username);
-            pstmt.setString(2, pw);
-            ResultSet rs = pstmt.executeQuery();
-            if(rs.next())
-            {
-                msg="Login Successful ! ! !<br/>Welcome "+username+".";
-                session.setAttribute("login", username);
-            }
-            else
-                msg="Login Failed ! ! !<br/>Please Try Again.";
-        }
-        
       out.write("\n");
       out.write("        <div class=\"breadcrumb-area\">\n");
       out.write("            <div class=\"container h-100\">\n");
@@ -316,6 +265,28 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"col-12 col-lg-12\">\n");
       out.write("                        <div class=\"uza-contact-form mb-80\">\n");
       out.write("                            <div class=\"col-lg-6\">\n");
+      out.write("                                ");
+      out.write("\n");
+      out.write("                                ");
+
+        if (request.getParameter("submit") != null) {
+            String username = request.getParameter("username");
+            String pw = request.getParameter("pw");
+            Connection con = (Connection) application.getAttribute("con");
+            PreparedStatement pstmt = con.prepareStatement("Select * from signup where name=? and pwd=? ");
+            pstmt.setString(1, username);
+            pstmt.setString(2, pw);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                session.setAttribute("login", username);
+                session.setAttribute("loginID", rs.getInt("id"));
+                response.sendRedirect("index.jsp");
+            } else {
+                msg = "Login Failed ! ! !<br/>Please Try Again.";
+            }
+        }
+                                
+      out.write("\n");
       out.write("                                <form action=\"\" method=\"post\">\n");
       out.write("                                    <div class=\"form-group\">\n");
       out.write("                                        <input type=\"text\" name=\"username\" size=\"32\" class=\"form-control mb-30\" placeholder=\"Enter the name\">\n");

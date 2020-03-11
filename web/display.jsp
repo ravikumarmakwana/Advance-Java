@@ -59,6 +59,7 @@ import="java.sql.*"%>
             </tr>
         <jsp:include page="dbconnect.jsp"/>
         <%
+        String msg="";
         Connection con=(Connection)application.getAttribute("con");
         Statement stmt=con.createStatement();
         %>
@@ -67,10 +68,8 @@ import="java.sql.*"%>
         {
             int pid=Integer.parseInt(request.getParameter("pid"));
             int row=stmt.executeUpdate("delete from products_jdbc where pid='"+pid+"'");
-            out.println("<script>");
-            out.println("alert('"+row+" are Deleted .')");
-            out.println("</script>");
-        }
+            msg=row+" Items are Deleted ";
+            }
         %>
 
         <%
@@ -92,6 +91,7 @@ import="java.sql.*"%>
         }
         %>
         </table>
+        <p style="font-size:30px;" ><%= msg%></p>
             </div>
         </section>
         <!-- jQuery js -->

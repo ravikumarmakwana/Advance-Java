@@ -3,13 +3,11 @@
     Created on : 24-Jan-2020, 20:00:54
     Author     : Ravikumar Makwana
 --%>
-<%@page import="com.vvp.*" %>
-<%@page import="java.util.*" %>
+<%@page import="java.util.*,java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-   <%@include file="header.jsp" %>
-
+<%@include file="header.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -43,48 +41,60 @@
             </div>
         </div>
         <!-- ***** Breadcrumb Area End ***** -->
-
+        <jsp:include page="dbconnect.jsp"/>
         <div class="container">
              <div>
                 <%
-
-            HashMap <Integer,Products> products=(HashMap <Integer,Products>)application.getAttribute("products");
             HashMap <Integer,Integer> cartItems=(HashMap <Integer,Integer>)session.getAttribute("cart");
+            Connection con = (Connection)application.getAttribute("con");
+             Statement stmt = con.createStatement();
+            String msg="";
+             if(request.getParameter("pid")!=null)
+            {
+                int row=stmt.executeUpdate("delete from cart where pid='"+Integer.parseInt(request.getParameter("pid"))+"' and userid='"+(Integer)session.getAttribute("loginID")+"' ");
+                if(row!=0)
+                    msg="Product is Remove from cart ! ! !";
+                cartItems.remove(Integer.parseInt(request.getParameter("pid")));
+                session.setAttribute("cart", cartItems);
+            }
             int c=1;
             double grandTotal=0;
             if(cartItems!=null){
-                    if(cartItems.size()!=0){
-                    out.println("<table border='1' class='table'>");
+                if(cartItems.size()!=0){
+                   out.println("<table border='1' class='table'>");
                     out.println("<tr align='center'>");
                     out.println("<th>Sr No.</th>");
                     out.println("<th>Name of Products</th>");
                     out.println("<th>Quantity</th>");
                     out.println("<th>Price</th>");
                     out.println("<th>Remove</th>");
-                    out.println("<th>Buy</th>");
                     out.println("</tr>");
                 for(Integer i: cartItems.keySet())
                 {
-                    Products p=products.get(i);
-                    grandTotal+= p.getPrice() * cartItems.get(i);
-                    out.println("<tr align='center'><td>"+(c++)+"</td><td>"+p.getPname()+"</td><td>"+cartItems.get(i)+"</td><td>"+p.getPrice()+"</td>");
-                    out.println("<td><form action='finalstep.jsp' method='get'> <input type='hidden' name='pid' value='"+ p.getPid() +"'> <input type='submit' value='Remove' class='btn btn-danger' name='operation'/></form> </td><td> <form action='buyersinformation.jsp'> <input type='hidden' name='pid' value='"+ p.getPid() +"'> <input type='submit' class='btn btn-success' value='Buy' name='operation'/></form></td></tr>");
-                }
+                    ResultSet rs = stmt.executeQuery("Select * from products where pid='"+i+"'");
+                    rs.next();
+                    grandTotal+=cartItems.get(i)*rs.getDouble("price");
+                    out.println("<tr align='center'><td>"+(c++)+"</td><td>"+rs.getString("pname")+"</td><td>"+cartItems.get(i)+"</td><td>"+rs.getDouble("price")+"</td>");
+                    %>
+                    <td><a class='btn btn-outline-danger' href='cartitems.jsp?pid=<%= i %>'>Remove</a></td></tr>
+                <%}
                 out.println("</table>");
                 out.println("<h3>Grand Total :: "+grandTotal+" Rs.</h3>");
-                    }
-                    else
-                        out.println("Your Cart is Empty ! ! !");
+                %>
+                <a href="buyersinformation.jsp?payment=<%= grandTotal %>"><h3 class='btn btn-outline-primary' style="width:150px;">Buy All</h3></a>
+                <%}
+                else
+                    out.println("<p style='color:teal; font-size:30px;'>Your Cart is Empty ! ! !</p>");
             }
             else
             {
-                out.println("Your Cart is Empty ! ! !");
+                out.println("<p style='color:teal; font-size:30px;'>Your Cart is Empty ! ! !</p>");
             }
-
+           if(msg.length()!=0)
+                out.println("<p style='color:teal; font-size:30px;'>"+msg+"</p>");
         %>
             </div>
         </div>
-
         <!-- jQuery js -->
     <script src="js/jquery.min.js"></script>
     <!-- Popper js -->

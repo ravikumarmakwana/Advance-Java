@@ -57,39 +57,36 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul id="nav">
-                                <li class="current-item"><a href="index.jsp">Home</a></li>
+                                <li><a href="index.jsp">Home</a></li>
                                 <li><a href="#">Assignments</a>
                                     <ul class="dropdown">
                                         <li><a href="#">Assignment 1</a>
                                         	<ul class="dropdown">
-                                                <li><a href="login.jsp">Practical 1</a></li>
-                                                <li><a href="numberofvisitors.do">Practical 2</a></li>
-                                                <li><a href="numbertable.html">Practical 3</a></li>
-                                                <li><a href="signup.jsp">Practical 4</a></li>
+                                                <li><a href="login.jsp">Login-Controller</a></li>
+                                                <li><a href="numberofvisitors.do">Count Visitors</a></li>
+                                                <li><a href="numbertable.html">Multiplication Table</a></li>
+                                                <li><a href="signup.jsp">Sign Up</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Assignment 2</a>
                                         	<ul class="dropdown">
-                                                <li><a href="calculator.jsp">Practical 1</a></li>
-                                                <li><a href="login2.jsp">Practcal 2</a></li>
-                                                <li><a href="celesiustofahrenheit.jsp">Practical 3</a></li>
-                                                <li><a href="nooftextfield.jsp">Practical 4</a></li>
-                                                <li><a href="productlist.jsp">Practical 5</a></li>
+                                                <li><a href="calculator.jsp">Calculator</a></li>
+                                                <li><a href="login2.jsp">Dynamic Login</a></li>
+                                                <li><a href="celesiustofahrenheit.jsp">Celesius-Fahrenheit</a></li>
+                                                <li><a href="nooftextfield.jsp">Text-Field Generate</a></li>
+                                                <li><a href="productlist.jsp">E-Commerce</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Assignment 3</a>
                                         	<ul class="dropdown">
-                                                <li><a href="signup.jsp">Practical 1</a></li>
-                                                <li><a href="product_jdbc.jsp">Practical 2</a></li>
+                                                <li><a href="signup.jsp">Sign Up With JDBC</a></li>
+                                                <li><a href="product_jdbc.jsp">JDBC Operations</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Assignment 4</a>
                                         	<ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
+                                                <li><a href="productlist.jsp">E-Commerce 2.0</a></li>
+                                                </ul>
                                         </li>
                                         <li><a href="#">Assignment 5</a>
                                         	<ul class="dropdown">
@@ -127,6 +124,7 @@
                                 </li>
                                 <li><a href="signup.jsp">Sign Up</a></li>
                                 <li><a href="login.jsp">Login</a></li>
+                                <li><a href="admin.jsp" class="btn btn-outline-info" style="color:black;">Admin</a></li>
                                 <li><a><h2 class="btn btn-danger" style="border-radius:100%;">
                                     <%
                                        if (session.getAttribute("login") != null){

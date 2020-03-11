@@ -5,15 +5,22 @@
 
 package com.vvp.web;
 
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 /**
  *
  * @author Ravikumar Makwana
@@ -31,14 +38,14 @@ public class ProductList extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            HttpSession session=request.getSession();
             int pid = Integer.parseInt(request.getParameter("pid"));
             int q = Integer.parseInt(request.getParameter("q"));
-            HttpSession session=request.getSession();
-            HashMap <Integer,Integer> cartList=(HashMap<Integer,Integer>) session.getAttribute("cart");
+            HashMap <Integer,Integer> cartList=(HashMap <Integer,Integer>)session.getAttribute("cart");
             if(cartList==null)
             {
                 HashMap <Integer,Integer> temp=new HashMap<Integer,Integer>();
-                temp.put(new Integer(pid), new Integer(q));
+                temp.put(new Integer(pid),new Integer(q));
                 session.setAttribute("cart", temp);
             }
             else
@@ -46,8 +53,20 @@ public class ProductList extends HttpServlet {
                 cartList.put(new Integer(pid),new Integer(q));
                 session.setAttribute("cart", cartList);
             }
+            double price=Float.parseFloat(request.getParameter("price"));
+            int userId=(Integer)session.getAttribute("loginID");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030","root","");
+            Statement stmt=(Statement) con.createStatement();
+            int row=stmt.executeUpdate("Insert into cart (cartid,userid,pid,q,price) values (NULL,'"+userId+"','"+pid+"','"+q+"','"+price+"')");
+
             response.sendRedirect("productlist.jsp");
-        } finally { 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
             out.close();
         }
     } 

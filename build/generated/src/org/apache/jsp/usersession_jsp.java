@@ -51,9 +51,8 @@ public final class usersession_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
 
 
-        if (session.getAttribute("login") == null) {
-            response.sendRedirect("login.jsp");
-        }
+    if(session.getAttribute("login")==null)
+        response.sendRedirect("login.jsp");
 
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

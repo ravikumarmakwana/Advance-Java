@@ -55,8 +55,7 @@ import="java.sql.*"%>
         int stock=rs.getInt(4);
         float price=rs.getFloat(5);
         String image=rs.getString(6);
-        %>
-        <%
+        String msg="";
         if(request.getParameter("update")!=null)
         {
             pname=request.getParameter("pname");
@@ -65,9 +64,7 @@ import="java.sql.*"%>
             price=Float.parseFloat(request.getParameter("price"));
             image=request.getParameter("image");
             int row=stmt.executeUpdate("Update products set pname='"+pname+"', pdesc='"+pdesc+"' , stock='"+stock+"' , price='"+price+"', image='"+image+"' where pid='"+pid+"'");
-            out.println("<script>");
-            out.println("alert('"+row+" are Updated .')");
-            out.println("</script>");
+            msg=row+" are Updated .";
         }
         %>
         <section class="uza-contact-area section-padding-80">
@@ -80,6 +77,8 @@ import="java.sql.*"%>
                     <input type="file" name="image" value="<%= image%>" class="form-control col-lg-5"/><br/>
                     <input type="submit" name="update" value="Update" class="btn btn-info col-lg-2"/>
                 </form>
+               <br/>
+               <p style="color:teal;font-size:30px;"><%= msg%></p>
             </div>
         </section>
         <!-- jQuery js -->
