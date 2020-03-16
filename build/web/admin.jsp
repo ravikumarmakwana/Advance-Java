@@ -3,11 +3,10 @@
     Created on : 20-Feb-2020, 13:23:43
     Author     : Ravikumar Makwana
 --%>
-<%@include file="usersession.jsp"%>
 <%
-         String name= (String)session.getAttribute("login");
-         if(!name.equals("Admin_Java"))
-             response.sendRedirect("login.jsp");
+     String name= (String)session.getAttribute("login");
+     if(!name.equals("Admin_Java"))
+        response.sendRedirect("login.jsp");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"

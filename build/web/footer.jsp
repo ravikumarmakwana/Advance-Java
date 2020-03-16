@@ -49,7 +49,7 @@
                         <!-- Nav -->
                         <nav>
                             <ul class="our-link">
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="about.jsp">About Us</a></li>
                                 <li><a href="login.jsp">Contact Us</a></li>
                                 <li><a href="signup.jsp">Forum Registeration</a></li>
                             </ul>

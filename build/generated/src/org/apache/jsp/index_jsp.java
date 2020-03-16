@@ -49,7 +49,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
-      			null, true, 8192, true);
+      			"errorpage.jsp", true, 8192, true);
       _jspx_page_context = pageContext;
       application = pageContext.getServletContext();
       config = pageContext.getServletConfig();
@@ -265,7 +265,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("   <section>\n");
       out.write("       <div class=\"container col-lg-8\" align=\"justify\">\n");
-      out.write("           <h2 style=\"font-family:monospace;color:teal;\">Awesome Programs</h2>\n");
+      out.write("           <h1 style=\"font-family:monospace;color:teal;\">Sitemap of My Website</h1>\n");
       out.write("           <div class=\"row\">\n");
       out.write("               <div class=\"col-lg-3\" >\n");
       out.write("                   <h3>Assignment 1</h3>\n");

@@ -47,7 +47,7 @@
                 <%
             HashMap <Integer,Integer> cartItems=(HashMap <Integer,Integer>)session.getAttribute("cart");
             Connection con = (Connection)application.getAttribute("con");
-             Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement();
             String msg="";
              if(request.getParameter("pid")!=null)
             {
@@ -81,7 +81,7 @@
                 out.println("</table>");
                 out.println("<h3>Grand Total :: "+grandTotal+" Rs.</h3>");
                 %>
-                <a href="buyersinformation.jsp?payment=<%= grandTotal %>"><h3 class='btn btn-outline-primary' style="width:150px;">Buy All</h3></a>
+                <a href="buyersinformation.jsp"><h3 class='btn btn-outline-primary' style="width:150px;">Buy All</h3></a>
                 <%}
                 else
                     out.println("<p style='color:teal; font-size:30px;'>Your Cart is Empty ! ! !</p>");

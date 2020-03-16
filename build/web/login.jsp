@@ -77,6 +77,8 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="pw" size="32" class="form-control mb-30" placeholder="Enter the password">
+                                    </div>
+                                    <div class="form-group">
                                         <input type="submit" name="submit" value="Login" class="btn btn-primary" style="width:100px;">
                                     </div>
                                 </form>

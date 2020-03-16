@@ -58,6 +58,7 @@
                         <div class="classynav">
                             <ul id="nav">
                                 <li><a href="index.jsp">Home</a></li>
+                                <li><a href="about.jsp">About</a></li>
                                 <li><a href="#">Assignments</a>
                                     <ul class="dropdown">
                                         <li><a href="#">Assignment 1</a>
@@ -87,38 +88,6 @@
                                         	<ul class="dropdown">
                                                 <li><a href="productlist.jsp">E-Commerce 2.0</a></li>
                                                 </ul>
-                                        </li>
-                                        <li><a href="#">Assignment 5</a>
-                                        	<ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Assignment 6</a>
-                                        	<ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Assignment 7</a>
-                                        	<ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Assignment 8</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
                                         </li>
                                     </ul>
                                 </li>

@@ -26,7 +26,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Assignment 2</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Cart-Items</li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="cartitems.jsp">Cart-Items</a></li>
                                 </ol>
                             </nav>
                         </div>
@@ -57,10 +57,6 @@
                                     <input type="radio" name="payment" value="Debit" id="debet"/><label for="debrt">Debit Card (<font color="red" size="2">This Service is not available</font>)</label><br/><br/>
                                     <input type="radio" name="payment" value="Credit" id="credit"/><label for="credit">Credit Card (<font color="red" size="2">This Service is not available</font>)</label><br/><br/>
                                     <br/>
-                                    <%
-                                    String pay=request.getParameter("payment");
-                                    %>
-                                    <input type="hidden" name="pay" value="<%= pay%>"/>
                                     <input type="submit" value="Buy" name="operation" class="btn btn-success" style="width:100px;"/>
                                 </form>
                             </div>

@@ -4,7 +4,8 @@
     Author     : Ravikumar Makwana
 --%>
 <%@page import="com.vvp.*" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"
+<%@include file="usersession.jsp" %>
+<%@page contentType="text/html" errorPage="errorpage.jsp" pageEncoding="UTF-8"
         import="java.util.*,java.sql.*"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -43,17 +44,16 @@
         Connection con = (Connection) application.getAttribute("con");
         Statement stmt = con.createStatement();
         count = 0;
-        int id=(Integer)session.getAttribute("loginID");
-        ResultSet rs=stmt.executeQuery("Select * from cart where userid='"+id+"'");
-        HashMap <Integer,Integer> temp=new HashMap<Integer,Integer>();
+        int id = (Integer) session.getAttribute("loginID");
+        ResultSet rs = stmt.executeQuery("Select * from cart where userid='" + id + "'");
+        HashMap<Integer, Integer> temp = new HashMap<Integer, Integer>();
 
-        int pid,q;
-        while(rs.next())
-        {
-            pid=rs.getInt("pid");
-            q=rs.getInt("q");
-            count+=q;
-            temp.put(new Integer(pid),new Integer(q));
+        int pid, q;
+        while (rs.next()) {
+            pid = rs.getInt("pid");
+            q = rs.getInt("q");
+            count += q;
+            temp.put(new Integer(pid), new Integer(q));
         }
         session.setAttribute("cart", temp);
                                 %>
@@ -92,12 +92,18 @@
                         <!-- Post Content -->
                         <div class="post-content" align="left">
                             <p><%= rs.getString("pdesc")%><br/>
-                            <b>Price</b> : <%= rs.getFloat("price")%><br/>
-                            <b>Stock </b>: <%= rs.getInt("stock")%><br/><br/>
+                                <b>Price</b> : <%= rs.getFloat("price")%><br/>
+                                <b>Stock </b>: <%int s = rs.getInt("stock");
+                    if (s == 0) {
+                        out.print("<span style='color:red;'>Out of Stock</span>");
+                    } else {
+                        out.print(s);
+                    }
+                                %><br/><br/>
                             </p><div align="center">
                                 <form action="productlist.do" method="post">
-                                    <input type="hidden" value="<%= rs.getInt("pid") %>" name="pid"/>
-                                    <input type="hidden" value="<%= rs.getFloat("price") %>" name="price"/>
+                                    <input type="hidden" value="<%= rs.getInt("pid")%>" name="pid"/>
+                                    <input type="hidden" value="<%= rs.getFloat("price")%>" name="price"/>
                                     Quantity:<input type="number" value="1" name="q"/><br/><br/>
                                     <input type="submit" class="btn btn-primary" value="Add To Cart" name="addtocart"/>
                                 </form>
@@ -119,7 +125,7 @@
         <script src="js/uza.bundle.js"></script>
         <!-- Active js -->
         <script src="js/default-assets/active.js"></script>
-
+        
     </body>
 </html>
 <%@include file="footer.jsp" %>
