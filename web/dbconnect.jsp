@@ -19,7 +19,7 @@ import="java.sql.*"%>
         if(application.getAttribute("con")==null)
         {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/5zzMDCzcPX","5zzMDCzcPX","armiJRoLQt");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030","root","");
             application.setAttribute("con", con);
         }
         %>
