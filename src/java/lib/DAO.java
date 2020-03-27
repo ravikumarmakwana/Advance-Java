@@ -22,7 +22,7 @@ public class DAO {
         String msg = "";
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ajt7030", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/5zzMDCzcPX", "5zzMDCzcPX", "armiJRoLQt");
             stmt = con.createStatement();
             if (c == 's') {
                 ResultSet rs = stmt.executeQuery("Select * from Student where student_id=" + id + "");
