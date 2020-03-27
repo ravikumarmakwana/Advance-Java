@@ -1,0 +1,26 @@
+SMAP
+removebook_jsp.java
+JSP
+*S JSP
+*F
++ 0 removebook.jsp
+removebook.jsp
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+5,2:60
+1#1,113:62
+114,5:176
+118,23:181
+7#0,6:204
+12:209,2
+13,37:211
+50,8:249
+57,7:257
+64,2:265
+65,18:267
+1#2,100:284
+82#0:384
+*E

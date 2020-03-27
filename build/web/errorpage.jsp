@@ -6,9 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-   <%@page isErrorPage="true" %>
-   <%@include file="header.jsp" %>
+"http://www.w3.org/TR/html4/loose.dtd">
+<%@page isErrorPage="true" %>
+<%@include file="header.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -34,28 +34,28 @@
                     </div>
                 </div>
             </div>
-             <div class="breadcrumb-bg-curve">
-                <img src="./img/core-img/curve-3.png" alt="">
+            <div class="breadcrumb-bg-curve">
+                <img src="./img/core-img/curve-5.png" alt="">
             </div>
         </div>
 
 
-          <div class="container">
-                    <h1>Error Ocured ....</h1>
-      <h3>The Exception is .... <%= exception %></h3>
+        <div class="container">
+            <h1>Error Ocured ....</h1>
+            <h3>The Exception is .... <%= exception%></h3>
 
-          </div>
-      
-     <!-- jQuery js -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All js -->
-    <script src="js/uza.bundle.js"></script>
-    <!-- Active js -->
-    <script src="js/default-assets/active.js"></script>
+        </div>
+
+        <!-- jQuery js -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Popper js -->
+        <script src="js/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- All js -->
+        <script src="js/uza.bundle.js"></script>
+        <!-- Active js -->
+        <script src="js/default-assets/active.js"></script>
 
     </body>
 </html>

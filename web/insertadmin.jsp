@@ -9,7 +9,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page errorPage="errorpage.jsp"
-import="java.sql.*"%>
+         import="java.sql.*"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -45,18 +45,18 @@ import="java.sql.*"%>
         <!-- ***** Contact Area Start ***** -->
         <jsp:include page="dbconnect.jsp"/>
         <%
-        String msg="";
-        if(request.getParameter("insert")!=null){
-        String pname=request.getParameter("pname");
-        String pdesc=request.getParameter("pdesc");
-        int stock=Integer.parseInt(request.getParameter("stock"));
-        float price=Float.parseFloat(request.getParameter("price"));
-        String image=request.getParameter("image");
-        Connection con=(Connection)application.getAttribute("con");
-        Statement stmt=con.createStatement();
-        int row=stmt.executeUpdate("Insert into products (pid,pname,pdesc,stock,price,image) values (NULL,'"+pname+"','"+pdesc+"','"+stock+"','"+price+"','"+image+"')");
-        
-        msg=row+" are affaceted .";
+        String msg = "";
+        if (request.getParameter("insert") != null) {
+            String pname = request.getParameter("pname");
+            String pdesc = request.getParameter("pdesc");
+            int stock = Integer.parseInt(request.getParameter("stock"));
+            float price = Float.parseFloat(request.getParameter("price"));
+            String image = request.getParameter("image");
+            Connection con = (Connection) application.getAttribute("con");
+            Statement stmt = con.createStatement();
+            int row = stmt.executeUpdate("Insert into products (pid,pname,pdesc,stock,price,image) values (NULL,'" + pname + "','" + pdesc + "','" + stock + "','" + price + "','" + image + "')");
+
+            msg = row + " are affaceted .";
         }
         %>
         <section class="uza-contact-area section-padding-80">
@@ -74,15 +74,15 @@ import="java.sql.*"%>
             </div>
         </section>
         <!-- jQuery js -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All js -->
-    <script src="js/uza.bundle.js"></script>
-    <!-- Active js -->
-    <script src="js/default-assets/active.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <!-- Popper js -->
+        <script src="js/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- All js -->
+        <script src="js/uza.bundle.js"></script>
+        <!-- Active js -->
+        <script src="js/default-assets/active.js"></script>
 
     </body>
 </html>

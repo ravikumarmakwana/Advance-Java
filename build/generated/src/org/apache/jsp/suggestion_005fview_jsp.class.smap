@@ -1,0 +1,25 @@
+SMAP
+suggestion_005fview_jsp.java
+JSP
+*S JSP
+*F
++ 0 suggestion_view.jsp
+suggestion_view.jsp
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+5,2:60
+11,2:62
+1#1,113:64
+114,5:178
+118,23:183
+13#0,6:206
+18:211,2
+19,41:213
+60,11:255
+70,18:266
+1#2,100:283
+87#0:383
+*E

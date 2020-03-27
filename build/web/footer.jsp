@@ -51,6 +51,7 @@
                             <ul class="our-link">
                                 <li><a href="about.jsp">About Us</a></li>
                                 <li><a href="login.jsp">Contact Us</a></li>
+                                <li><a href="suggestion.jsp">Suggestions / Reviews</a></li>
                                 <li><a href="signup.jsp">Forum Registeration</a></li>
                             </ul>
                         </nav>

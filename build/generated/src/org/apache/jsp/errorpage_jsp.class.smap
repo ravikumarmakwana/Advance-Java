@@ -1,0 +1,21 @@
+SMAP
+errorpage_jsp.java
+JSP
+*S JSP
+*F
++ 0 errorpage.jsp
+errorpage.jsp
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+5,7:63
+1#1,113:69
+114,5:183
+118,23:188
+11#0,34:211
+45:245,3
+46,17:248
+1#2,101:264
+*E

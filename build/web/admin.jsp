@@ -4,9 +4,12 @@
     Author     : Ravikumar Makwana
 --%>
 <%
-     String name= (String)session.getAttribute("login");
-     if(!name.equals("Admin_Java"))
-        response.sendRedirect("login.jsp");
+        String name = (String) session.getAttribute("login");
+        if (name == null) {
+            response.sendRedirect("login.jsp");
+        } else if (!name.equals("Admin_Java")) {
+            response.sendRedirect("login.jsp");
+        }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -58,8 +61,15 @@
                     <br/><br/>
                     <h3 style="font-family:monospace;color:teal;">Manage E-Commerce Web Application</h3>
                     <br/><br/>
-                    <a href="insertadmin.jsp" class="btn btn-outline-info btn-block">Insert</a><br/><br/><br/><br/>
-                    <a href="displayadmin.jsp" class="btn btn-outline-info btn-block">Display</a><br/><br/><br/><br/>
+                    <a href="insertadmin.jsp" class="btn btn-outline-info btn-block">Insert Products</a><br/><br/>
+                    <a href="displayadmin.jsp" class="btn btn-outline-info btn-block">Display Products</a><br/><br/>
+                    <br/><br/>
+                    <h3 style="font-family:monospace;color:teal;">Manage Library Management System</h3>
+                    <br/><br/>
+                    <a href="addbooks.jsp" class="btn btn-outline-info btn-block">Add New Book</a><br/><br/>
+                    <a href="addstudentstaff.jsp" class="btn btn-outline-info btn-block">Add New Staff / New Student</a><br/><br/>
+                    <a href="removebook.jsp" class="btn btn-outline-info btn-block">Remove Book</a><br/><br/>
+                    <a href="suggestion_view.jsp" class="btn btn-outline-info btn-block">Suggestion</a><br/><br/>
                 </div>
             </div>
         </div>

@@ -53,7 +53,7 @@
                     </p>
                     <br/>
                     <p align="justify" style="font-family:monospace;text-indent:50px;">
-                        This is Web Application is my Academic Advance Java Assignments. The Assignment-1 content Intital Advance Java Concepts include Servlet programming, Http request response model, Servlet Life Cycle. The Assignment-2 content JSP Life Cycle, different types of Scopes, E-Commerce Web Application. The Assignment-3 content JDBC Operations. The Assignment-4 content Advance E-Commerce web Application.
+                        This is Web Application is my Academic Advance Java Assignments. The Assignment-1 contains Intital Advance Java Concepts include Servlet programming, Http request response model, Servlet Life Cycle. The Assignment-2 contains JSP Life Cycle, different types of Scopes, E-Commerce Web Application. The Assignment-3 contains JDBC Operations. The Assignment-4 contains Advance E-Commerce web Application. The Assignment-5 contains text browser using URL and URLConnection. The Assignment-6 contains Library Management System with MVC architecture. The Assignment-7 contains what is custom define tag ? and simple example.
                     </p>
                     <h3 style="color:teal; font-family:sans-serif;">Ravi.1804.makwana@gmail.com</h3>
                 </div>

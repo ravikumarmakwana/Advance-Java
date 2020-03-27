@@ -1,0 +1,27 @@
+SMAP
+addbooks_jsp.java
+JSP
+*S JSP
+*F
++ 0 addbooks.jsp
+addbooks.jsp
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+5,2:63
+1#1,113:65
+114,5:179
+118,23:184
+7#0,6:207
+12:212,2
+13,33:214
+46,2:12
+47,2:247
+49,10:250
+58,13:260
+71,4:274
+74,19:278
+1#2,101:296
+*E

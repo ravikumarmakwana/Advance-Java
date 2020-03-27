@@ -3,7 +3,6 @@
     Created on : 15-Jan-2020, 18:44:53
     Author     : Ravikumar Makwana
 --%>
-<%@include file="usersession.jsp"%>
 <%@page contentType="text/html" errorPage="errorpage.jsp" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -90,6 +89,33 @@
                </div>
                <div class="col-lg-5">
                    <a href="productlist.jsp">Advance E-Commerce Web Application</a><br>
+              </div>
+           </div>
+           <hr style="color:teal;border:2px solid teal;" />
+           <div class="row">
+               <div class="col-lg-3" >
+                   <h3>Assignment 5</h3>
+               </div>
+               <div class="col-lg-5">
+                   <a href="url_urlconnection.jsp">Text Based Browser</a><br>
+              </div>
+           </div>
+           <hr style="color:teal;border:2px solid teal;" />
+           <div class="row">
+               <div class="col-lg-3" >
+                   <h3>Assignment 6</h3>
+               </div>
+               <div class="col-lg-5">
+                   <a href="home_lms.jsp">Library Management System</a><br>
+              </div>
+           </div>
+           <hr style="color:teal;border:2px solid teal;" />
+           <div class="row">
+               <div class="col-lg-3" >
+                   <h3>Assignment 7</h3>
+               </div>
+               <div class="col-lg-5">
+                   <a href="">Custom Tag</a><br>
               </div>
            </div>
        </div>

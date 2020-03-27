@@ -81,7 +81,7 @@
 
             <!-- Background Curve -->
             <div class="breadcrumb-bg-curve">
-                <img src="./img/core-img/curve-3.png" alt="">
+                <img src="./img/core-img/curve-5.png" alt="">
             </div>
         </div>
         <!-- ***** Breadcrumb Area End ***** -->

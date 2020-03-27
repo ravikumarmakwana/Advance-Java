@@ -89,6 +89,21 @@
                                                 <li><a href="productlist.jsp">E-Commerce 2.0</a></li>
                                                 </ul>
                                         </li>
+                                        <li><a href="">Assignment 5</a>
+                                        	<ul class="dropdown">
+                                                <li><a href="url_urlconnection.jsp">Web Browser</a></li>
+                                                </ul>
+                                        </li>
+                                        <li><a href="">Assignment 6</a>
+                                        	<ul class="dropdown">
+                                                <li><a href="home_lms.jsp">Library System</a></li>
+                                                </ul>
+                                        </li>
+                                        <li><a href="#">Assignment 7</a>
+                                        	<ul class="dropdown">
+                                                <li><a href="#">Custom Tag</a></li>
+                                                </ul>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><a href="signup.jsp">Sign Up</a></li>
