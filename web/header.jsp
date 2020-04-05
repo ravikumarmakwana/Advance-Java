@@ -101,7 +101,7 @@
                                         </li>
                                         <li><a href="#">Assignment 7</a>
                                         	<ul class="dropdown">
-                                                <li><a href="#">Custom Tag</a></li>
+                                                <li><a href="customtag.jsp">Custom Tag</a></li>
                                                 </ul>
                                         </li>
                                     </ul>

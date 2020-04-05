@@ -1,0 +1,21 @@
+SMAP
+customtag_jsp.java
+JSP
+*S JSP
+*F
++ 0 customtag.jsp
+customtag.jsp
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+5,2:60
+1#1,113:62
+114,5:176
+118,23:181
+7#0,53:204
+59:391,8
+59,16:259
+1#2,101:274
+*E

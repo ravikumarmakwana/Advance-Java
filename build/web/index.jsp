@@ -115,7 +115,7 @@
                    <h3>Assignment 7</h3>
                </div>
                <div class="col-lg-5">
-                   <a href="">Custom Tag</a><br>
+                   <a href="customtag.jsp">Custom Tag</a><br>
               </div>
            </div>
        </div>

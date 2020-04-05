@@ -1,14 +1,11 @@
 <%-- 
-    Document   : home_lms
-    Created on : 25-Mar-2020, 11:02:02
+    Document   : customtag
+    Created on : 05-Apr-2020, 06:27:38
     Author     : Ravikumar Makwana
 --%>
-<%
-        if (session.getAttribute("lms") == null) {
-            response.sendRedirect("login_lms.jsp");
-        }
-%>
+
 <%@include file="header.jsp" %>
+<%@taglib uri="/WEB-INF/tlds/customtag.tld" prefix="Lockdown" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Title -->
-        <title>Library Management System</title>
+        <title>Custom Tag</title>
 
         <!-- Favicon -->
         <link rel="icon" href="./img/core-img/favicon.ico">
@@ -37,13 +34,13 @@
                     <div class="col-12">
                         <div class="breadcumb--con">
                             <h2 class="title">
-                                Library Management System
+                                Custom Tag
                             </h2>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.jsp"><i class="fa fa-home"></i>Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Assignment 6</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library Management System</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Assignment 7</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Custom Tag</li>
                                 </ol>
                             </nav>
                         </div>
@@ -59,30 +56,7 @@
         <!-- ***** Breadcrumb Area End ***** -->
 
         <div class="container">
-        <div class="row align-items-center">
-
-            <!-- About Thumbnail -->
-            <div class="col-12 col-md-6">
-                <div class="about-us-thumbnail mb-80">
-                    <img src="img/core-img/quote.png" style="height:50px;width:50px;"/>
-                    <h1 style="font-family:monospace;color:teal;">Library are Sacred Time Machine Where Knowledge flow and Magic is eternal.
-                    </h1>
-                </div>
-            </div>
-
-            <!-- About Us Content -->
-            <div class="col-12 col-md-6">
-                <div class="about-us-content mb-80">
-                    <div class="container">
-                        <h2>Our Services</h2>
-                        <a href="login_lms.jsp" class="btn btn-outline-danger">Login</a><br/><br/>
-                        <a href="issuebook_lms.jsp" class="btn btn-outline-danger">Issue Book</a><br/><br/>
-                        <a href="returnbook_lms.jsp" class="btn btn-outline-danger">Return Book</a><br/><br/>
-                        <a href="checkbookstatus_lms.jsp" class="btn btn-outline-danger">Check Book Status</a><br/><br/>
-                        <a href="suggestion.jsp" class="btn btn-outline-danger">Suggestion</a><br/><br/>
-                    </div>
-                </div>
-            </div>
+            <h3>COVID-19 alert : <Lockdown:Stayhome instructions="Maintain Social Distance ! ! !"/></h3>
         </div>
         <!-- jQuery js -->
         <script src="js/jquery.min.js"></script>
